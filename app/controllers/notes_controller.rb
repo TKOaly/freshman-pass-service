@@ -33,7 +33,7 @@ class NotesController < ApplicationController
 
   def dokaa
     if current_user.has_role? :fuksi
-      current_user.notes << Note.create(points: -3, description: I18n.t('notes.dokaa'), to: current_user, points_hidden: false) unless current_user.dokattu?
+      current_user.notes << Note.create(points: -30, description: I18n.t('notes.dokaa'), to: current_user, points_hidden: false) unless current_user.dokattu?
       redirect_to current_user, alert: I18n.t('notes.plz_no')
     else
       redirect_to root_path, alert: 'User not fuksi'
