@@ -7,7 +7,7 @@ end
 
 
 gem 'rails', '~> 5.2.1'
-ruby '2.5.1'
+ruby '2.6.10'
 
 gem 'dotenv-rails', require: 'dotenv/rails-now', groups: [:development, :test]
 
