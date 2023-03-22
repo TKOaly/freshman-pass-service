@@ -18,7 +18,6 @@ gem 'coffee-rails'
 gem 'slim'
 gem 'slim-rails'
 gem 'rails-i18n'
-gem 'rollbar'
 gem 'oj'
 # gem 'therubyracer', platforms: :ruby
 
