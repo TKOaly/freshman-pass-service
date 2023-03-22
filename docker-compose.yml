@@ -5,6 +5,7 @@ services:
     volumes:
       - .:/usr/src/app
       - bundle:/usr/local/bundle
+      - storage:/usr/local/storage
     ports:
       - "3000:3000"
     env_file:
@@ -25,3 +26,4 @@ services:
 volumes:
   pg_data:
   bundle:
+  storage:

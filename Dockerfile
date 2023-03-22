@@ -17,6 +17,7 @@ RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
     pkg-config \
     libxml2-dev \
     libxslt-dev \
+    imagemagick \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV LANG=C.UTF-8 \

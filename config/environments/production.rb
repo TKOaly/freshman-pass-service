@@ -86,6 +86,8 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'fuksipassi.herokuapp.com/' }
 
+  config.active_storage.service = :local
+
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
       address:              'smtp.sendgrid.net',

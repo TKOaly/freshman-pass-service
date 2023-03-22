@@ -39,8 +39,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 
-gem 'carrierwave'
-gem 'cloudinary'
+gem 'image_processing'
 
 group :development, :test do
   gem 'byebug', platform: :mri

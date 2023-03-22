@@ -1,8 +1,8 @@
 h4 = "Unconfirmed attendances #{@selected_event ? "from #{@selected_event.name}" : ""}#{@selected_task ? "for #{@selected_task.description}" : ""}#{@selected_user ? "of #{@selected_user.full_name}" : ""}"
 div
   - if @selected_user
-    - if @selected_user.image.present?
-      = image_tag @selected_user.image.url(:display)
+    - if @selected_user.avatar.attached?
+      = image_tag @selected_user.avatar_display
 
 
 div

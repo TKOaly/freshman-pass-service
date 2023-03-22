@@ -7,10 +7,9 @@
     .field
       = f.label I18n.t('devise.registrations.edit.labels.image')
       br
-      = f.hidden_field :image_cache
-      = f.file_field :image
-      - if f.object.image?
-        = f.check_box :remove_image
+      = f.file_field :avatar
+      - if f.object.avatar.attached?
+        = f.check_box :remove_avatar
         |&nbsp;
         = f.label I18n.t('devise.registrations.edit.labels.remove_image')
         br

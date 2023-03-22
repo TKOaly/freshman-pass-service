@@ -11,8 +11,8 @@
       == render 'role_list', roles: @user.roles
 
       br
-      - if @user.image.present?
-        = image_tag @user.image.url(:display)
+      - if @user.avatar.attached?
+        = image_tag @user.avatar_display
     br
   - if @user.has_role? :fuksi
     div.col-sm-12
