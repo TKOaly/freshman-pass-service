@@ -7,7 +7,7 @@ services:
       - bundle:/usr/local/bundle
       - storage:/usr/local/storage
     ports:
-      - "5001:5001"
+      - "3000:3000"
     env_file:
       - .env
     environment:
