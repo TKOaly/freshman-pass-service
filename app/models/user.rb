@@ -4,7 +4,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :lockable, :timeoutable,
          :omniauthable, :omniauth_providers => []
 
-  mount_uploader :image, ImageUploader
+  has_one_attached :avatar
 
   before_validation :assign_default_role, on: :create
   has_many :participation_requests, :class_name => 'ParticipationRequest', foreign_key: 'participant_id', dependent: :destroy
@@ -18,7 +18,7 @@ class User < ApplicationRecord
   belongs_to :year, required: false
   belongs_to :language, required: false
 
-  attr_accessor :login
+  attr_accessor :login, :remove_avatar
 
   scope :tutors, -> { with_role(:tutor) }
 
@@ -50,6 +50,18 @@ class User < ApplicationRecord
                 allow_nil: true,
                 allow_blank: true
             }
+
+  def avatar_thumb
+    avatar.variant(resize: "50x50").processed if avatar.attached?
+  end
+
+  def avatar_list
+    avatar.variant(resize: "80x100").processed if avatar.attached?
+  end
+
+  def avatar_display
+    avatar.variant(resize: "300x300").processed if avatar.attached?
+  end
 
   def full_name
     "#{first_name} #{last_name}"

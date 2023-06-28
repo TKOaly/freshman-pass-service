@@ -7,7 +7,7 @@ end
 
 
 gem 'rails', '~> 5.2.1'
-ruby '2.5.1'
+ruby '2.6.10'
 
 gem 'dotenv-rails', require: 'dotenv/rails-now', groups: [:development, :test]
 
@@ -18,7 +18,6 @@ gem 'coffee-rails'
 gem 'slim'
 gem 'slim-rails'
 gem 'rails-i18n'
-gem 'rollbar'
 gem 'oj'
 # gem 'therubyracer', platforms: :ruby
 
@@ -39,8 +38,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 
-gem 'carrierwave'
-gem 'cloudinary'
+gem 'image_processing'
 
 group :development, :test do
   gem 'byebug', platform: :mri
