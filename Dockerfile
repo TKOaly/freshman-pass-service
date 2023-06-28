@@ -28,7 +28,13 @@ RUN gem update --system && gem install bundler
 
 WORKDIR /usr/src/app
 
-ENTRYPOINT ["./entrypoint.sh"]
+COPY Gemfile* .
+
+RUN bundle install
+
+COPY . .
+
+# ENTRYPOINT ["./entrypoint.sh"]
 
 EXPOSE 3000
 
