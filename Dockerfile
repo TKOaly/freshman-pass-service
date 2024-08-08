@@ -1,4 +1,4 @@
-FROM ruby:2.6.10-slim
+FROM ruby:3.3.4-slim
 
 RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
     build-essential \
@@ -33,8 +33,6 @@ COPY Gemfile* .
 RUN bundle install
 
 COPY . .
-
-# ENTRYPOINT ["./entrypoint.sh"]
 
 EXPOSE 3000
 

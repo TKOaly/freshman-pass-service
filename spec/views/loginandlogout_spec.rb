@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Logging in and out", type: :feature do
   before :each do
-    user = FactoryGirl.create(:user)
+    user = FactoryBot.create(:user)
   end
 
   describe "logging in" do

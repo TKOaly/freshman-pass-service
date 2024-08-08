@@ -9,8 +9,8 @@ default: &default
   pool: 5
   timeout: 5000
   encoding: unicode
-  database: postgres
-  username: postgres
+  database: pass
+  username: pass
   password: changeme
   host: db
 

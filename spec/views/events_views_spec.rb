@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Events view', type: :feature do
   describe 'creating an event' do
     before :each do
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
       user.add_role 'admin'
       login_as(user)
       visit new_event_path
@@ -38,7 +38,7 @@ RSpec.describe 'Events view', type: :feature do
 
   describe 'creating a task' do
     before :each do
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
       user.add_role 'admin'
       login_as(user)
       visit new_participation_path

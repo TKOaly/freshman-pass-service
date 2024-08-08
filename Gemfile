@@ -6,10 +6,10 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'rails', '~> 5.2.1'
-ruby '2.6.10'
+gem 'rails', '~> 7.1.3.4'
+ruby '3.3.4'
 
-gem 'dotenv-rails', require: 'dotenv/rails-now', groups: [:development, :test]
+gem 'dotenv-rails', require: 'dotenv/load', groups: [:development, :test]
 
 gem 'puma'
 gem 'sass-rails'
@@ -61,7 +61,7 @@ group :development do
 end
 
 group :test do
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   gem 'capybara'
   gem 'launchy'
