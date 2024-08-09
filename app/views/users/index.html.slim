@@ -1,12 +1,12 @@
-h3 Users
+h3 #{I18n.t('user.index.users')}
 div.panel-group
   div.panel.panel-default
     - if tutor?
-      == render 'users/user_list', users: @users.with_role(:fuksi), title: 'Freshmen'
-    == render 'users/user_list', users: @users.with_role(:tutor), title: 'Tutors'
-    == render 'users/user_list', users: @users.with_role(:admin), title: 'Admins'
+      == render 'users/user_list', users: @users.with_role(:fuksi), title: I18n.t('user.index.freshmen')
+    == render 'users/user_list', users: @users.with_role(:tutor), title: I18n.t('user.index.tutors')
+    == render 'users/user_list', users: @users.with_role(:admin), title: I18n.t('user.index.admins')
 - if tutor?
-  h3 Top freshmen
+  h3 #{I18n.t('user.index.top_freshmen')}
   ul.list-group
   - @top_fuksit.each do |fm|
     li.list-group-item.justify-content-between
@@ -14,7 +14,7 @@ div.panel-group
       span.badge
         = fm.real_points
 
-h3 Tutors
+h3 #{I18n.t('user.index.tutors')}
 ul.list-group
 - @top_tutors.each do |fm|
   li.list-group-item.justify-content-between

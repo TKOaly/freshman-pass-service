@@ -21,107 +21,117 @@
 
 en:
   application:
-    title: 'Fresher pass'
+    title: "Fresher pass"
     header:
       links:
-        main: 'Fresher pass'
-        events: 'Events'
-        overview: 'Overview'
-        users: 'Users'
-        tutors: 'Tutors'
-        dokaa: 'Fuck shit up'
-        view_user: 'Profile'
-        about: 'About'
-        login: 'Login'
-        register: 'Register'
+        main: "Fresher pass"
+        events: "Events"
+        overview: "Overview"
+        users: "Users"
+        tutors: "Tutors"
+        dokaa: "Fuck shit up"
+        view_user: "Profile"
+        about: "About"
+        login: "Login"
+        register: "Register"
       messages:
-        dokaa: 'Seriously?'
+        dokaa: "Seriously?"
       language: "Language"
       menu:
-        view_user: 'Profile'
-        edit: 'Edit user detail'
-        logout: 'Logout'
+        view_user: "Profile"
+        edit: "Edit user detail"
+        logout: "Logout"
+  common:
+    errors:
+      unauthorized: "You are not authorized to access this page."
+    tools:
+      delete: "Delete"
+      edit: "Edit"
+      update: "Päivitä"
+    navigation:
+      back: "Back"
   about:
     index:
-      title: 'Fresher pass'
-      text1: 'Fresher pass was created by'
-      text2: 'and'
-      text3: ' (Julius is not anymore in charge of the support, contact Eetu). If you are having problems with it you can join to our Telegram channel'
+      title: "Fresher pass"
+      text1: "Fresher pass was created by"
+      text2: "and"
+      text3: " (Julius is not anymore in charge of the support, contact Eetu). If you are having problems with it you can join to our Telegram channel"
       text4: ". You can join even if you don't have any problems :D"
-      text5: 'Fresher pass was programmed with Ruby on Rails and is of course open source. If you want to make it better you can message to the channel or to the developers mentioned before.'
-      text6: 'Github of the project can be found '
-      text7: '. Well made pull requests can earn you points (and/or beer). Minus points are given from complaints. Hacking can give you either depending on the level of mayhem.'
-      link: 'here'
+      text5: "Fresher pass was programmed with Ruby on Rails and is of course open source. If you want to make it better you can message to the channel or to the developers mentioned before."
+      text6: "Github of the project can be found "
+      text7: ". Well made pull requests can earn you points (and/or beer). Minus points are given from complaints. Hacking can give you either depending on the level of mayhem."
+      link: "here"
   devise:
     confirmations:
       new:
         title: "Resend confirmation instructions"
         submit: "Resend confirmation instructions"
         labels:
-          email: 'Email'
+          email: "Email"
     passwords:
       edit:
-        title: 'Change your password'
+        title: "Change your password"
         labels:
           password: "New password"
           confirmation: "Confirm new password"
         submit: "Change my password"
       new:
-        title: 'Forgot your password?'
+        title: "Forgot your password?"
         submit: "Send me reset password instructions"
         labels:
           email: "Email"
     registrations:
       edit:
-        title: 'Edit '
+        title: "Edit "
         labels:
-          image: 'Image'
-          remove_image: 'Remove image'
-          email: 'Email'
-          username: 'Username'
-          first_name: 'First name'
-          last_name: 'Last name'
-          irc_nick: 'Telegram / irc nick'
-          password: 'Password'
+          image: "Image"
+          remove_image: "Remove image"
+          email: "Email"
+          username: "Username"
+          first_name: "First name"
+          last_name: "Last name"
+          irc_nick: "Telegram / irc nick"
+          password: "Password"
           password_info: "(leave blank if you don't want to change it)"
-          confirmation: 'Password confirmation'
-          current: 'Current password'
+          password_length: "Password needs to be atleast %{count} characters"
+          confirmation: "Password confirmation"
+          current: "Current password"
           current_info: "(we need your current password to confirm your changes)"
-        submit: 'Update'
+        submit: "Update"
         unhappy:
-          title: 'Cancel my account'
-          text: 'Unhappy?'
-          submit: 'Cancel my account'
-          confirmation: 'Are you sure?'
-          back: 'Hold up'
+          title: "Cancel my account"
+          text: "Unhappy?"
+          submit: "Cancel my account"
+          confirmation: "Are you sure?"
+          back: "Hold up"
       new:
-        title: 'Sign up'
+        title: "Sign up"
         labels:
-          image: 'Image'
-          email: 'Email*'
-          username: 'Username*'
-          first_name: 'First name*'
-          last_name: 'Last name*'
-          irc_nick: 'Telegram / irc nick'
-          password: 'Password*'
-          password_info: 'Characters minimum'
-          confirmation: 'Password confirmation*'
-          privacy_policy_consent: 'Privacy policy'
+          image: "Image"
+          email: "Email*"
+          username: "Username*"
+          first_name: "First name*"
+          last_name: "Last name*"
+          irc_nick: "Telegram / irc nick"
+          password: "Password*"
+          password_info: "Password needs to be atleast %{count} characters"
+          confirmation: "Password confirmation*"
+          privacy_policy_consent: "Privacy policy"
           privacy_policy_consent_label: " I agree that the information I have given can be saved to personal data registry of Freshman pass service. More information at our <a href='https://www.tko-aly.fi/freshman_privacy' target='_blank'>Privacy Policy</a> page."
-        required: 'Required fields marked with *'
-        submit: 'Sign up'
+        required: "Required fields marked with *"
+        submit: "Sign up"
     sessions:
       new:
-        title: 'Log in'
-        submit: 'Log in'
+        title: "Log in"
+        submit: "Log in"
         labels:
           email_or_username: "Email or username"
           password: "Password"
           remember_me: "Remember me"
     unlocks:
       new:
-        title: 'Resend unlock instructions'
-        submit: 'Resend unlock instructions'
+        title: "Resend unlock instructions"
+        submit: "Resend unlock instructions"
     links:
       link1: "Log in"
       link2: "Sign up"
@@ -145,6 +155,11 @@ en:
         hide_btn: "Hide event"
         show_btn2: "Unhide challenge"
         hide_btn2: "Hide challenge"
+    show:
+      points:
+        participation: "Points for participation"
+        for_freshers: "Points for freshers for participation"
+        request: "Request points"
   notes:
     dokaa: "Dokasi fuksipassin / You ruined it."
     plz_no: "Don't do this plz"
@@ -152,7 +167,20 @@ en:
       success: "Saved successfully"
       error: "Error, not saved"
   user:
+    index:
+      users: "Users"
+      tutors: "Tutors"
+      admins: "Admins"
+      freshmen: "Freshmen"
+      top_freshmen: "Top freshmen"
     show:
+      points:
+        confirmed: "Confirmed points"
+        all: "All points"
+        real: "Real points"
+      events:
+        attended: "Attended events"
+      comments: "Comments"
       destroy:
         title: "Remove user"
         btn: "Remove user"

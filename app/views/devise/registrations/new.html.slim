@@ -33,9 +33,7 @@
       = f.label I18n.t('devise.registrations.new.labels.password')
       - if @minimum_password_length
         em
-          | (
-          = @minimum_password_length
-          |  #{I18n.t('devise.registrations.new.labels.password_info')})
+          | (#{I18n.t('devise.registrations.new.labels.password_info', count: @minimum_password_length)})
       br
       = f.password_field :password, autocomplete: "off"
     .field

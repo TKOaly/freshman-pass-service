@@ -21,107 +21,117 @@
 
 fi:
   application:
-    title: 'Fuksipassi'
+    title: "Fuksipassi"
     header:
       links:
-        main: 'Fuksipassi'
-        events: 'Tapahtumat'
-        overview: 'Yleiskatsaus'
-        users: 'Käyttäjät'
-        tutors: 'Tuutorit'
-        dokaa: 'Dokaa fuksipassi'
-        view_user: 'Profiili'
-        about: 'Tietoa'
-        login: 'Kirjaudu'
-        register: 'Rekisteröidy'
+        main: "Fuksipassi"
+        events: "Tapahtumat"
+        overview: "Yleiskatsaus"
+        users: "Käyttäjät"
+        tutors: "Tuutorit"
+        dokaa: "Dokaa fuksipassi"
+        view_user: "Profiili"
+        about: "Tietoa"
+        login: "Kirjaudu"
+        register: "Rekisteröidy"
       messages:
-        dokaa: 'Ootko nyt ihan vitun varma? :D'
+        dokaa: "Ootko nyt ihan vitun varma? :D"
       language: "Kieli"
       menu:
-        view_user: 'Profiili'
-        edit: 'Muokkaa käyttäjätietoja'
-        logout: 'Kirjaudu ulos'
+        view_user: "Profiili"
+        edit: "Muokkaa käyttäjätietoja"
+        logout: "Kirjaudu ulos"
+  common:
+    errors:
+      unauthorized: "Sinulla ei ole oikeuksia tälle sivulle."
+    tools:
+      delete: "Poista"
+      edit: "Muokkaa"
+      update: "Päivitä"
+    navigation:
+      back: "Takaisin"
   about:
     index:
-      title: 'Fuksipassi'
-      text1: 'Fuksipassin loi'
-      text2: 'ja'
-      text3: ' (Julius ei enää vastaa ylläpidosta). Ongelmatilanteissa liity Telegram-kanavalle'
-      text4: '. Tai ihan muuten vaan :D'
-      text5: 'Fuksipassi on tehty Ruby on Railsilla, ja on tietenkin open source. Jos haluat kehittää sitä, suosittelemme liittymään ylläolevalle kanavalle, tai juttelemaan ko. henkilöille.'
-      text6: 'Projektin github on '
-      text7: '. Asiallisista pull-requesteistä saa tietenkin fuksipisteitä (ja/tai kaljaa). Koodista valittamisesta saa miinuspisteitä. Hakkeroinnista plus tai miinus, riippuen mayhemin tasosta.'
-      link: 'täällä'
+      title: "Fuksipassi"
+      text1: "Fuksipassin loi"
+      text2: "ja"
+      text3: " (Julius ei enää vastaa ylläpidosta). Ongelmatilanteissa liity Telegram-kanavalle"
+      text4: ". Tai ihan muuten vaan :D"
+      text5: "Fuksipassi on tehty Ruby on Railsilla, ja on tietenkin open source. Jos haluat kehittää sitä, suosittelemme liittymään ylläolevalle kanavalle, tai juttelemaan ko. henkilöille."
+      text6: "Projektin github on "
+      text7: ". Asiallisista pull-requesteistä saa tietenkin fuksipisteitä (ja/tai kaljaa). Koodista valittamisesta saa miinuspisteitä. Hakkeroinnista plus tai miinus, riippuen mayhemin tasosta."
+      link: "täällä"
   devise:
     confirmations:
       new:
         title: "Uudelleenlähetä sähköpostinvarmistus"
         submit: "Uudelleenlähetä sähköpostinvarmistus"
         labels:
-          email: 'Sähköposti'
+          email: "Sähköposti"
     passwords:
       edit:
-        title: 'Salasanan vaihto'
+        title: "Salasanan vaihto"
         labels:
           password: "Uusi salasana"
           confirmation: "Uusi salasana uudestaan"
         submit: "Vaihda salasana"
       new:
-        title: 'Unohditko salasanasi?'
+        title: "Unohditko salasanasi?"
         submit: "Lähetä minulle ohjeet salasanani uusimiseen"
         labels:
           email: "Sähköposti"
     registrations:
       edit:
-        title: 'Muokkaa '
+        title: "Muokkaa "
         labels:
-          image: 'Kuva'
-          remove_image: 'Poista kuva'
-          email: 'Sähköposti'
-          username: 'Käyttäjätunnus'
-          first_name: 'Etunimi'
-          last_name: 'Sukunimi'
-          irc_nick: 'Telegram / irc nick'
-          password: 'Salasana'
+          image: "Kuva"
+          remove_image: "Poista kuva"
+          email: "Sähköposti"
+          username: "Käyttäjätunnus"
+          first_name: "Etunimi"
+          last_name: "Sukunimi"
+          irc_nick: "Telegram / irc nick"
+          password: "Salasana"
           password_info: "(jätä tyhjäksi, jos et halua vaihtaa)"
-          confirmation: 'Salasana uudestaan'
-          current: 'Nykyinen salasana'
+          password_length: "Vähintään %{count} merkkiä"
+          confirmation: "Salasana uudestaan"
+          current: "Nykyinen salasana"
           current_info: "(Tarvitsemme nykyisen salasanasi vahvistaaksemme muutokset)"
-        submit: 'Päivitä'
+        submit: "Päivitä"
         unhappy:
-          title: 'Poista tunnukseni'
-          text: 'Tyytymätön?'
-          submit: 'Poista tunnukseni'
-          confirmation: 'Oletko varma?'
-          back: 'EIKU'
+          title: "Poista tunnukseni"
+          text: "Tyytymätön?"
+          submit: "Poista tunnukseni"
+          confirmation: "Oletko varma?"
+          back: "EIKU"
       new:
-        title: 'Rekisteröidy'
+        title: "Rekisteröidy"
         labels:
-          image: 'Kuva'
-          email: 'Sähköpostiosoite*'
-          username: 'Käyttäjänimi*'
-          first_name: 'Etunimi*'
-          last_name: 'Sukunimi*'
-          irc_nick: 'Telegram / irc nick'
-          password: 'Salasana*'
-          password_info: 'Merkkejä vähintään'
-          confirmation: 'Salasana uudestaan*'
-          privacy_policy_consent: 'Käyttöehdot'
+          image: "Kuva"
+          email: "Sähköpostiosoite*"
+          username: "Käyttäjänimi*"
+          first_name: "Etunimi*"
+          last_name: "Sukunimi*"
+          irc_nick: "Telegram / irc nick"
+          password: "Salasana*"
+          password_info: "Vähintään %{count} merkkiä"
+          confirmation: "Salasana uudestaan*"
+          privacy_policy_consent: "Käyttöehdot"
           privacy_policy_consent_label: " Hyväksyn, että antamani henkilötiedot tallennetaan fuksipassin henkilötietorekisteriin. Lisätietoja fuksipassin <a href='https://www.tko-aly.fi/freshman_privacy' target='_blank'>tietosuojaselosteesta</a>."
-        required: 'Pakolliset kentät merkitty *-merkillä'
-        submit: 'Rekisteröidy'
+        required: "Pakolliset kentät merkitty *-merkillä"
+        submit: "Rekisteröidy"
     sessions:
       new:
-        title: 'Kirjaudu'
-        submit: 'Kirjaudu'
+        title: "Kirjaudu"
+        submit: "Kirjaudu"
         labels:
           email_or_username: "Sähköposti tai käyttäjätunnus"
           password: "Salasana"
           remember_me: "Muista minut"
     unlocks:
       new:
-        title: 'Uudelleenlähetä tilin avausohjeet'
-        submit: 'Uudelleenlähetä tilin avausohjeet'
+        title: "Uudelleenlähetä tilin avausohjeet"
+        submit: "Uudelleenlähetä tilin avausohjeet"
     links:
       link1: "Kirjaudu"
       link2: "Rekisteröidy"
@@ -145,6 +155,11 @@ fi:
         hide_btn: "Piilota tapahtuma"
         show_btn2: "Poista haasteen piilotus"
         hide_btn2: "Piilota haaste"
+    show:
+      points:
+        participation: "Pisteitä osallistumisesta"
+        for_freshers: "Pisteitä fuksille osallistumissta"
+        request: "Ano pisteitä"
   notes:
     dokaa: "Dokasi fuksipassin"
     plz_no: "Älä plz"
@@ -152,7 +167,20 @@ fi:
       success: "Tallennettu onnistuneesti"
       error: "Virhe, tallenus epäonnistui"
   user:
+    index:
+      users: "Käyttäjät"
+      tutors: "Tuutorit"
+      admins: "Ylläpitäjät"
+      freshmen: "Fuksit"
+      top_freshmen: "Parhaat fuksit"
     show:
+      points:
+        confirmed: "Vahvistetut pisteet"
+        all: "Kaikki pisteet"
+        real: "Todelliset pisteet"
+      events:
+        attended: "Tapahtumat, joihin olen osallistunut"
+      comments: "Kommentit"
       destroy:
         title: "Poista käyttäjä"
         btn: "Poista käyttäjä"

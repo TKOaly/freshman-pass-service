@@ -2,12 +2,12 @@
   h2
     =@participation.description
   p
-    ' Points for participation:
+    ' #{I18n.t('events.show.points.participation')}:
     span.badge.badge-pill
       = @participation.participation_points(current_user)
   - if tutor?
     p
-      ' Points for freshers for participation:
+      ' #{I18n.t('events.show.points.for_freshers')}:
       span.badge.badge-pill
         = @participation.points
 
@@ -17,10 +17,10 @@
 
   -if tutor?
     p
-      = link_to 'Delete', @participation, data: {confirm: 'Are you sure you want to delete this task?'}, method: :delete
+      = link_to I18n.t('common.tools.delete'), @participation, data: {confirm: 'Are you sure you want to delete this task?'}, method: :delete
       '  |
-      = link_to 'Edit', edit_participation_path(@participation)
+      = link_to I18n.t('common.tools.edit'), edit_participation_path(@participation)
       '  |
-      = link_to 'Back', events_path
+      = link_to I18n.t('common.navigation.back'), events_path
   - else
-    = link_to 'Back', events_path
+    = link_to I18n.t('common.navigation.back'), events_path

@@ -6,12 +6,12 @@
     = link_to @event.event_link, @event.event_link if @event.event_link
 
   p
-    ' Points for participation:
+    ' #{I18n.t('events.show.points.participation')}:
     span.badge.badge-pill
       = @event.event_points(current_user)
   - if tutor?
     p
-      ' Points for freshers for participation:
+      ' #{I18n.t('events.show.points.for_freshers')}:
       span.badge.badge-pill
         = @event.event_points
   - if !@event.future? && (!@main_participation.first || @main_participation.first&.can_participate?(current_user))
