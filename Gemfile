@@ -43,8 +43,7 @@ gem 'image_processing'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry-rails'
-  gem 'sqlite3'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 6.1.3'
   gem 'simplecov', require: false
 end
 
@@ -66,15 +65,12 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'webmock'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
+  gem 'webdrivers', '~> 4.0', require: false
   gem 'database_cleaner'
 
 end
 
-group :production do
-  gem 'pg'
-end
+gem 'pg'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
