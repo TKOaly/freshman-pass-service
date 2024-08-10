@@ -1,0 +1,8 @@
+- if resource.errors.any?
+  div.alert.alert-danger.py-2 role="alert"
+    b #{I18n.t('common.errors.something')}:
+    ul.mb-0
+      - resource.errors.full_messages.each do |msg|
+        li
+          = msg
+

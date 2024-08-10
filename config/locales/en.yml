@@ -44,12 +44,14 @@ en:
   common:
     errors:
       unauthorized: "You are not authorized to access this page."
+      something: "Something happened"
     tools:
       delete: "Delete"
       edit: "Edit"
-      update: "Päivitä"
+      update: "Update"
     navigation:
       back: "Back"
+      toggle: "Toggle navigation"
   about:
     index:
       title: "Fresher pass"
@@ -92,11 +94,12 @@ en:
           last_name: "Last name"
           irc_nick: "Telegram / irc nick"
           password: "Password"
-          password_info: "(leave blank if you don't want to change it)"
-          password_length: "Password needs to be atleast %{count} characters"
+          password_info: "Leave blank if you don't want to change it."
+          password_requirements: "Password needs to be atleast %{count} characters."
           confirmation: "Password confirmation"
           current: "Current password"
-          current_info: "(we need your current password to confirm your changes)"
+          current_info: "We need your current password to confirm your changes."
+          waiting_confirmation: "Currently waiting confirmation for: %{email}"
         submit: "Update"
         unhappy:
           title: "Cancel my account"
@@ -114,10 +117,12 @@ en:
           last_name: "Last name*"
           irc_nick: "Telegram / irc nick"
           password: "Password*"
-          password_info: "Password needs to be atleast %{count} characters"
+          password_requirements: "Password needs to be atleast %{count} characters"
           confirmation: "Password confirmation*"
-          privacy_policy_consent: "Privacy policy"
-          privacy_policy_consent_label: " I agree that the information I have given can be saved to personal data registry of Freshman pass service. More information at our <a href='https://www.tko-aly.fi/freshman_privacy' target='_blank'>Privacy Policy</a> page."
+          privacy_policy_consent:
+            title: "Privacy policy"
+            label: "I agree that the information I have given can be saved to personal data registry of Freshman pass service."
+            more_info: "More information at our Privacy Policy page."
         required: "Required fields marked with *"
         submit: "Sign up"
     sessions:
@@ -133,12 +138,12 @@ en:
         title: "Resend unlock instructions"
         submit: "Resend unlock instructions"
     links:
-      link1: "Log in"
-      link2: "Sign up"
-      link3: "Forgot your password?"
-      link4: "Didn't receive confirmation instructions?"
-      link5: "Didn't receive unlock instructions?"
-      link6: "Sign in with"
+      login: "Log in"
+      signup: "Sign up"
+      forgot_password: "Forgot your password?"
+      confirmation: "Didn't receive confirmation instructions?"
+      unlock: "Didn't receive unlock instructions?"
+      signin_with: "Sign in with"
   events:
     index:
       title: "All events"

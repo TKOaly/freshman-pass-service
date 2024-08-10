@@ -12,12 +12,12 @@ html
 
   body
     = render 'layouts/header'
-    /div.container
     - if flash[:notice]
-      div.alert.alert-info
-        = flash[:notice]
+      div.container.py-2
+        div.alert.alert-info
+          = flash[:notice]
     - if flash[:alert]
-      div.alert.alert-danger
-        = flash[:alert]
-
+      div.container.py-2
+        div.alert.alert-danger
+          = flash[:alert]
     = yield

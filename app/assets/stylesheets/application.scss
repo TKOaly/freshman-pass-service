@@ -10,62 +10,72 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- //*= require_tree .
- //*= require_self
  */
-@import "bootstrap-sprockets"
-@import "bootstrap"
 
-//body
-//  margin: 5%
+@import "bootstrap";
 
-body
-  margin: 1%
+body {
+  margin: 1%;
+}
 
+h3 {
+  color: gray;
+}
 
-h3
-  color: gray
+.positive-score {
+  background-color: #019204;
+}
 
-.positive-score
-  background-color: #019204
+.negative-score {
+  background-color: black;
+}
 
-.negative-score
-  background-color: black
+.very-positive-score {
+  background-color: #3f8c41;
+}
 
-.very-positive-score
-  background-color: #3f8c41
+.form-inline div {
+  display: inline-block;
+}
 
-
-.form-inline div
-  display: inline-block
-
-.form-inline input, label
-  margin-right: 5px
+.form-inline input,
+label {
+  margin-right: 5px;
+}
 
 // Line breaks
-.line-break-xxs
-  padding-bottom: .3em
+.line-break-xxs {
+  padding-bottom: 0.3em;
+}
 
-.line-break-xs
-  padding-bottom: .5em
+.line-break-xs {
+  padding-bottom: 0.5em;
+}
 
-.line-break-sm
-  padding-bottom: 1em
+.line-break-sm {
+  padding-bottom: 1em;
+}
 
-.line-break-md
-  padding-bottom: 1.5em
+.line-break-md {
+  padding-bottom: 1.5em;
+}
 
-.line-break-lg
-  padding-bottom: 2em
+.line-break-lg {
+  padding-bottom: 2em;
+}
 
-.line-break-xlg
-  padding-bottom: 3em
+.line-break-xlg {
+  padding-bottom: 3em;
+}
 
-.line-break-xx-lg
-  padding-bottom: 4em
+.line-break-xx-lg {
+  padding-bottom: 4em;
+}
 
-.line-break-xxx-lg
-  margin-bottom: 5em
+.line-break-xxx-lg {
+  margin-bottom: 5em;
+}
 
-.line-break-xlg
-  padding-bottom: 3em
+.line-break-xlg {
+  padding-bottom: 3em;
+}

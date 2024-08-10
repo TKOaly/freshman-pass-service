@@ -1,13 +1,12 @@
 .container
   h2
     | #{I18n.t('devise.passwords.new.title')}
-  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-    = devise_error_messages!
+  = form_with(model: resource, as: resource_name, url: password_path(resource_name), method: :pos, class: "d-flex flex-column gap-2") do |f|
+    = render "devise/shared/error_messages", resource: resource
     .field
-      = f.label I18n.t('devise.passwords.new.labels.email')
+      = f.label I18n.t('devise.passwords.new.labels.email'), class: "form-label"
       br
-      = f.email_field :email, autofocus: true
-    .line-break-md
+      = f.email_field :email, class: "form-control", autofocus: true
     .actions
-      = f.submit I18n.t('devise.passwords.new.submit')
+      = f.submit I18n.t('devise.passwords.new.submit'), class: "btn btn-primary"
   = render "devise/shared/links"

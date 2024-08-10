@@ -21,7 +21,8 @@ gem 'rails-i18n'
 gem 'oj'
 # gem 'therubyracer', platforms: :ruby
 
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 5.3.3'
+gem "popper_js", "~> 2.11"
 gem 'autoprefixer-rails'
 
 gem 'jquery-rails'

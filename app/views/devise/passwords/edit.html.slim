@@ -1,24 +1,20 @@
 .container
   h2
     | #{I18n.t('devise.passwords.edit.title')}
-  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
-    = devise_error_messages!
+  = form_with(model: resource, as: resource_name, url: password_path(resource_name), method: :put, class: "d-flex flex-column gap-2") do |f|
+    = render "devise/shared/error_messages", resource: resource
     = f.hidden_field :reset_password_token
     .field
-      = f.label :password, I18n.t('devise.passwords.edit.labels.password')
+      = f.label :password, I18n.t('devise.passwords.edit.labels.password'), class: "form-label"
       br
+      = f.password_field :password, class: "form-control", autofocus: true, autocomplete: "off"
       - if @minimum_password_length
-        em
-          | (
-          = @minimum_password_length
-          |  characters minimum)
-        br
-      = f.password_field :password, autofocus: true, autocomplete: "off"
+        div.form-text#password-requirements
+          | #{I18n.t('devise.registrations.new.labels.password_requirements', count: @minimum_password_length)}
     .field
-      = f.label :password_confirmation, I18n.t('devise.passwords.edit.labels.confirmation')
+      = f.label :password_confirmation, I18n.t('devise.passwords.edit.labels.confirmation'), class: "form-label"
       br
-      = f.password_field :password_confirmation, autocomplete: "off"
-    .line-break-md
+      = f.password_field :password_confirmation, class: "form-control", autocomplete: "off"
     .actions
-      = f.submit I18n.t('devise.passwords.edit.submit')
+      = f.submit I18n.t('devise.passwords.edit.submit'), class: "btn btn-primary"
   = render "devise/shared/links"

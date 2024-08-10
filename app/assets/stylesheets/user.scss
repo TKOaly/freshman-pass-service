@@ -1,0 +1,42 @@
+#confirmed {
+  padding: 0.4em 0.6em 0.4em;
+}
+
+.note-giver {
+  color: gray;
+}
+
+.rolemanagement {
+  position: relative;
+  bottom: 7px;
+  right: 1%;
+  left: 90%;
+}
+
+.rolemanagement :visited {
+  color: white;
+}
+
+.rolemanagement :link {
+  color: white;
+}
+
+select.btn {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  width: auto;
+}
+
+.btn-mini.btn {
+  font-size: 0.7em;
+}
+
+select.btn-mini + .caret {
+  margin-left: -20px;
+  margin-top: 9px;
+}
+
+body {
+  padding: 20px;
+}
