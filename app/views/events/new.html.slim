@@ -1,10 +1,10 @@
 .container
-  h1 New event
+  h1 #{I18n.t('events.new.title')}
   .grid
     .row
       .col-sm-12.col-md-4
         == render 'form', selected_event: @selected_event
-        = link_to 'Back', events_path
+        = link_to I18n.t('common.navigation.back'), events_path
       .col-sm-12.col-md-4
-        h4 Copy from TKO-äky calendar 
+        h4 #{I18n.t('events.new.copy')}
         == render 'list_tekis_events', tekis_events: @tekis_events

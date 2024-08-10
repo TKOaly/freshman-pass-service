@@ -9,8 +9,7 @@ RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
     postgresql-client \
     libvips42 \
     nodejs \
-    sqlite3 \
-    libsqlite3-dev \
+    npm \
     zlib1g-dev \
     liblzma-dev \
     patch \

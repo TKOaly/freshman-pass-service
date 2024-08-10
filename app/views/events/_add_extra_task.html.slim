@@ -1,0 +1,23 @@
+div.event-form
+  h4 #{I18n.t('events.show.extra_points.add')}
+  = form_with(model: @participation, class: "d-flex flex-column gap-2") do |f|
+    .field
+      = f.label :description, I18n.t('models.participation.description'), class: "form-label"
+      br
+      = f.text_field :description, class: "form-control"
+    .field
+      = f.label :points, I18n.t('models.participation.points'),  class: "form-label"
+      br
+      = f.number_field :points, class: "form-control"
+    .field
+      = f.check_box :fresher_can_participate, { checked: @event.id.nil? ? true : @event.participations.first&.fresher_can_participate }, class:"form-check-input"
+      |&nbsp;
+      = f.label :fresher_can_participate, I18n.t('models.participation.fresher_can_participate'), class: "form-check-label"
+    .field
+      = f.check_box :tutor_can_participate, { checked: @event.id.nil? ? true : @event.participations.first&.tutor_can_participate  }, class:"form-check-input"
+      |&nbsp;
+      = f.label :tutor_can_participate, I18n.t('models.participation.tutor_can_participate'), class: "form-check-label"
+    = f.hidden_field :event_id, :value => @event.id
+    = f.hidden_field :participation_type, :value => 'event_extra'
+    .actions
+      = f.submit I18n.t('common.tools.add'), :class => 'btn btn-primary'

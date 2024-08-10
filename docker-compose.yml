@@ -4,15 +4,13 @@ services:
       context: .
       dockerfile: Dockerfile
     image: freshman-pass:latest
-    command: bash -c "rm -f tmp/pids/server.pid && bin/rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && bin/dev"
     volumes:
       - .:/usr/src/app
       - bundle:/usr/local/bundle
       - storage:/usr/local/storage
     ports:
       - "3000:3000"
-    env_file:
-      - .env
     environment:
       - HISTFILE=/usr/src/app/log/.bash_history
     depends_on:

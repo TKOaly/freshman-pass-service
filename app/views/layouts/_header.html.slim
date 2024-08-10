@@ -10,7 +10,7 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary.mb-4 role="navigation"
             = link_to I18n.t('application.header.links.events'), events_path, class: 'nav-link'
         - if tutor?
           li.nav-item
-            = link_to text_with_badge(I18n.t('application.header.links.overview'), unaccepted_participations), overview_path, class: 'nav-link',  :"data-turbolinks" => false
+            = link_to text_with_badge(I18n.t('application.header.links.overview'), unaccepted_participations), overview_path, class: 'nav-link',  :"data-turbo" => false
         - if tutor?
           li.nav-item
             = link_to I18n.t('application.header.links.users'), users_path, class: 'nav-link'
@@ -25,7 +25,7 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary.mb-4 role="navigation"
         - if user_signed_in?
           - unless can? :create, Event
             li.nav-item
-              = link_to I18n.t('application.header.links.dokaa'), dokaa_path, class: 'nav-link',  data: {confirm: I18n.t('application.header.messages.dokaa')}
+              = link_to I18n.t('application.header.links.dokaa'), dokaa_path, class: 'nav-link',  data: { turbo_confirm: I18n.t('application.header.messages.dokaa')}
       .navbar-nav.ms-auto.mb-2.mb-lg-0
         li.nav-item.dropdown
           a.nav-link.dropdown-toggle#freshmen_pass-lang-dropdown href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
@@ -33,7 +33,7 @@ nav.navbar.navbar-expand-lg.bg-body-tertiary.mb-4 role="navigation"
           ul.dropdown-menu
             - Language.all.each do |language|
               li
-                = link_to "#{language.name} - #{language.en_name}", change_language_path(language.id), class:"dropdown-item", :method => :put
+                = link_to "#{language.name} - #{language.en_name}", change_language_path(language.id), class:"dropdown-item", data: { turbo_method: :put }
         - unless user_signed_in?
           li.nav-item
             = link_to I18n.t('application.header.links.login'), login_path, class: 'nav-link'

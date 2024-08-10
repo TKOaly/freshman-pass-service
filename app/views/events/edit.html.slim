@@ -1,9 +1,9 @@
 .container
-  h1 Editing event
+  h1 #{I18n.t('events.edit.title')}
 
   == render 'form', selected_event: nil
 
-  = link_to 'Show', @event
+  = link_to I18n.t('common.tools.show'), @event
   '  |
-  = link_to 'Back', events_path
+  = link_to I18n.t('common.navigation.back'), events_path
 

@@ -45,10 +45,15 @@ en:
     errors:
       unauthorized: "You are not authorized to access this page."
       something: "Something happened"
+      save: "Following errors prohibited this event from being saved"
     tools:
       delete: "Delete"
       edit: "Edit"
       update: "Update"
+      save: "Save"
+      request: "Request"
+      add: "Add"
+      show: "Show"
     navigation:
       back: "Back"
       toggle: "Toggle navigation"
@@ -165,6 +170,28 @@ en:
         participation: "Points for participation"
         for_freshers: "Points for freshers for participation"
         request: "Request points"
+      extra_points:
+        title: "Extra points"
+        add: "Add extra task"
+      edit: "Edit event"
+    edit:
+      title: "Editing event"
+    new:
+      title: "New event"
+      copy: "Copy from TKO-äly's calendar"
+  models:
+    participation:
+      description: "Description"
+      points_for_participation: "Points"
+      fresher_can_participate: "Freshmen are allowed to participate?"
+      tutor_can_participate: "Tutors are allowed to participate?"
+    event:
+      name: "Name"
+      date: "Date"
+      url: "Url"
+      points_for_participation: "Points for participation"
+      fresher_can_participate: "Freshmen are allowed to participate?"
+      tutor_can_participate: "Tutors are allowed to participate?"
   notes:
     dokaa: "Dokasi fuksipassin / You ruined it."
     plz_no: "Don't do this plz"
