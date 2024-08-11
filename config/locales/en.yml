@@ -54,6 +54,7 @@ en:
       request: "Request"
       add: "Add"
       show: "Show"
+      accept: "Accept"
     navigation:
       back: "Back"
       toggle: "Toggle navigation"
@@ -190,6 +191,19 @@ en:
       title: "Editing participation"
     new:
       title: "New participation"
+  overview:
+    unconfirmed:
+      title: "Unconfirmed attendances"
+      event: "Event"
+      task: "Task"
+      user: "User"
+      all_accepted: "All attendances have been accepted."
+    filters:
+      title: "Filters"
+      reset: "reset"
+      events: "Events"
+      tasks: "Tasks"
+      users: "Users"
   models:
     participation:
       model_name: "participation"

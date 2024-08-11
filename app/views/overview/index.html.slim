@@ -1,4 +1,6 @@
-div.col-sm-12.col-md-8
-  == render 'unconfirmed_requests', unconfirmed: @unconfirmed_requests
-div.col-sm-12.col-md-4
-  == render 'filters', events: @events, tasks: @tasks, users: @users
+.container.grid
+  .row
+    .col-sm-12.col-md-6
+      == render 'unconfirmed_requests', unconfirmed: @unconfirmed_requests
+    .col-sm-12.col-md-6
+      == render 'filters', events: @events, tasks: @tasks, users: @users
