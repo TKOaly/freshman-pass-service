@@ -186,9 +186,14 @@ en:
     states:
       confirmed: "Confirmed"
       unconfirmed: "Unconfirmed"
+    edit:
+      title: "Editing participation"
+    new:
+      title: "New participation"
   models:
     participation:
       model_name: "participation"
+      task_name: "task"
       description: "Description"
       points_for_participation: "Points"
       fresher_can_participate: "Freshmen are allowed to participate?"

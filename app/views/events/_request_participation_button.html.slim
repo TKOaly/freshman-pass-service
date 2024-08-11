@@ -6,6 +6,6 @@
     .actions
       = f.submit I18n.t('events.show.points.request'), :class => 'btn btn-primary'
 - else
-  span.btn.btn-success.disabled
-    = I18n.t('events.show.points.request')
-  .line-break-sm
+  .d-flex.flex-column.gap-2
+    span.btn.btn-primary.disabled
+      = I18n.t('events.show.points.request')

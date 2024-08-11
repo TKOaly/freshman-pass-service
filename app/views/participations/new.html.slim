@@ -1,6 +1,5 @@
-.container
-  h1 New participation
-
+.container.d-flex.flex-column.gap-2
+  h1 #{I18n.t('participation.new.title')}
   == render 'form'
-
-  = link_to 'Back', events_path
+  .d_flex.gap-2
+    = link_to I18n.t('common.navigation.back'), events_path
