@@ -163,6 +163,7 @@ fi:
   notes:
     dokaa: "Dokasi fuksipassin"
     plz_no: "Älä plz"
+    not_shown: "Harmaalla taustalla olevat pisteet piilossa fukseilta."
     comment_tutor:
       success: "Tallennettu onnistuneesti"
       error: "Virhe, tallenus epäonnistui"

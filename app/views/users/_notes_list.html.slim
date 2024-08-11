@@ -1,20 +1,24 @@
 - if tutor? and @user.has_role? :fuksi
-  h6 Harmaalla taustalla olevat pisteet piilossa fukseilta.
-- @user.notes.each do |note|
-  li.list-group-item.justify-content-between
-    = note.description
-    - if note.from
-      small.note-giver
-        '
-        = '(' + note.from.full_name + ') '
-    = td = link_to glyph(:trash), note, data: {confirm: 'Are you sure?'}, method: :delete if admin? or note.from == current_user
-    - if @user.has_role? :tutor
-      span[class="#{point_badge(note.points)}"]
-        = note.points if admin?
-    - elsif note.points_hidden
-      - if tutor? and @user.has_role? :fuksi
-        span.badge
-          = note.points
-    - else
-      span[class="#{point_badge(note.points)}"]
-        = note.points unless note.points_hidden
+  h6 #{I18n.t('notes.not_shown')}
+  ul.list-group.list-group-flush
+    - @user.notes.each do |note|
+      li.list-group-item.d-flex.justify-content-between.align-items-start
+        .ms-2.me-auto.d-flex.gap-2.flex-column
+          div
+            = note.description
+          .d-flex.gap-2.align-items-center
+            - if @user.has_role? :tutor
+              span.badge.text-bg-success
+                = note.points if admin?
+            - elsif note.points_hidden
+              - if tutor? and @user.has_role? :fuksi
+                span.badge.text-bg-success
+                  = note.points
+            - else
+              span.badge.text-bg-success
+                = note.points unless note.points_hidden
+            - if note.from
+              span
+                = '(' + note.from.full_name + ') '
+            - if admin? or note.from == current_user
+              = link_to icon("trash", class: "icon danger"), note, data: {turbo_confirm: I18n.t('common.warnings.delete'), turbo_method: "delete"}

@@ -27,9 +27,6 @@ fi:
         subject: "Sähköposti vaihdettu"
       password_change:
         subject: "Salasana vaihdettu"
-    omniauth_callbacks:
-      failure: "Valtuutus käyttäen palvelua %{kind} epäonnistui, koska '%{reason}'."
-      success: "Onnistuneesti valtuutettu käyttäen palvelua %{kind}."
     passwords:
       no_token: "Et voi nollata salasanaasi ilman linkkiä jonka sait sähköpostitse. Jos kuitenkin tulit tälle sivulle linkin kautta, varmista että käytät kokonaista linkkiä."
       send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet salasanan nollaukseen."

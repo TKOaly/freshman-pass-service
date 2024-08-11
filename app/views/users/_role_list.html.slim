@@ -1,9 +1,8 @@
-ul.list-inline
+.d-flex.gap-2
   - roles.each do |role|
-    li
-      - if role.name == 'admin' or role.name == 'tutor'
-        span.label.label-success
-          = role.name
-      - else
-        span.label.label-primary
-          = role.name
+    - if role.name == 'admin' or role.name == 'tutor'
+      span.badge.text-bg-success
+        = role.name
+    - else
+      span.badge.text-bg-primary
+        = role.name

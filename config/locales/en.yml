@@ -57,6 +57,9 @@ en:
     navigation:
       back: "Back"
       toggle: "Toggle navigation"
+    warnings:
+      sure: "Are you sure?"
+      delete: "Are you sure you want to delete this %{model_name}?"
   about:
     index:
       title: "Fresher pass"
@@ -179,13 +182,19 @@ en:
     new:
       title: "New event"
       copy: "Copy from TKO-äly's calendar"
+  participations:
+    states:
+      confirmed: "Confirmed"
+      unconfirmed: "Unconfirmed"
   models:
     participation:
+      model_name: "participation"
       description: "Description"
       points_for_participation: "Points"
       fresher_can_participate: "Freshmen are allowed to participate?"
       tutor_can_participate: "Tutors are allowed to participate?"
     event:
+      model_name: "event"
       name: "Name"
       date: "Date"
       url: "Url"
@@ -195,7 +204,15 @@ en:
   notes:
     dokaa: "Dokasi fuksipassin / You ruined it."
     plz_no: "Don't do this plz"
+    points: "Points"
+    hide_points: "Hide points"
+    description: "Description"
+    give_points: "Gibe points"
+    not_shown: "Points with gray background are hidden from freshmen."
     comment_tutor:
+      description: "Description"
+      like: "Gibe like 👍"
+      dislike: "Gibe dislike 👎"
       success: "Saved successfully"
       error: "Error, not saved"
   user:
@@ -207,13 +224,21 @@ en:
       top_freshmen: "Top freshmen"
     show:
       points:
+        points: "Points"
         confirmed: "Confirmed points"
         all: "All points"
         real: "Real points"
       events:
         attended: "Attended events"
+        accepted: "Accepted events"
+      notes:
+        written: "Notes written"
+        points: "Points given in notes"
       comments: "Comments"
       destroy:
         title: "Remove user"
         btn: "Remove user"
         confirmation: "Are you sure?"
+      roles:
+        toggle_admin: "Toggle admin"
+        toggle_tutor: "Toggle tutor"

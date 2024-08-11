@@ -1,23 +1,27 @@
-h3 #{I18n.t('user.index.users')}
-div.panel-group
-  div.panel.panel-default
-    - if tutor?
-      == render 'users/user_list', users: @users.with_role(:fuksi), title: I18n.t('user.index.freshmen')
-    == render 'users/user_list', users: @users.with_role(:tutor), title: I18n.t('user.index.tutors')
-    == render 'users/user_list', users: @users.with_role(:admin), title: I18n.t('user.index.admins')
-- if tutor?
-  h3 #{I18n.t('user.index.top_freshmen')}
-  ul.list-group
-  - @top_fuksit.each do |fm|
-    li.list-group-item.justify-content-between
-      = link_to fm.full_name, fm
-      span.badge
-        = fm.real_points
-
-h3 #{I18n.t('user.index.tutors')}
-ul.list-group
-- @top_tutors.each do |fm|
-  li.list-group-item.justify-content-between
-    = link_to fm.full_name, fm
-    span.badge
-      = fm.real_points if admin?
+.container
+  .grid.gap-2
+    .row
+      .col-sm-12.col-md-6.d-flex.flex-column.gap-2
+        h3 #{I18n.t('user.index.users')}
+        div.accordion.accordion-flush
+          - if tutor?
+            == render 'users/user_list', users: @users.with_role(:fuksi), title: I18n.t('user.index.freshmen')
+          == render 'users/user_list', users: @users.with_role(:tutor), title: I18n.t('user.index.tutors')
+          == render 'users/user_list', users: @users.with_role(:admin), title: I18n.t('user.index.admins')
+      .col-sm-12.col-md-6.d-flex.flex-column.gap-2
+        - if tutor?
+          #top_freshmen
+            h3 #{I18n.t('user.index.top_freshmen')}
+            ul.list-group.list-group-flush
+            - @top_fuksit.each do |fm|
+              li.list-group-item.d-flex.justify-content-between
+                = link_to fm.full_name, fm
+                span.badge
+                  = fm.real_points
+        h3 #{I18n.t('user.index.tutors')}
+        ul.list-group.list-group-flush
+        - @top_tutors.each do |fm|
+          li.list-group-item.d-flex.justify-content-between
+            = link_to fm.full_name, fm
+            span.badge.text-bg-success
+              = fm.real_points if admin?
