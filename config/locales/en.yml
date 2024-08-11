@@ -45,7 +45,7 @@ en:
     errors:
       unauthorized: "You are not authorized to access this page."
       something: "Something happened"
-      save: "Following errors prohibited this event from being saved"
+      save: "Following errors prohibited from being saved"
     tools:
       delete: "Delete"
       edit: "Edit"

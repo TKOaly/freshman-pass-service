@@ -44,12 +44,23 @@ fi:
   common:
     errors:
       unauthorized: "Sinulla ei ole oikeuksia tälle sivulle."
+      something: "Jotain tapahtui"
+      save: "Seuraavat virheet estivät tallentamisen"
     tools:
       delete: "Poista"
       edit: "Muokkaa"
       update: "Päivitä"
+      save: "Tallenna"
+      request: "Ano"
+      add: "Lisää"
+      show: "Näytä"
+      accept: "Hyväksy"
     navigation:
       back: "Takaisin"
+      toggle: "Näytä/piilota valikko"
+    warnings:
+      sure: "Oletko varma?"
+      delete: "Oletko varma, että haluat poistaa tämän %{model_name}?"
   about:
     index:
       title: "Fuksipassi"
@@ -93,10 +104,11 @@ fi:
           irc_nick: "Telegram / irc nick"
           password: "Salasana"
           password_info: "(jätä tyhjäksi, jos et halua vaihtaa)"
-          password_length: "Vähintään %{count} merkkiä"
+          password_requirements: "Vähintään %{count} merkkiä"
           confirmation: "Salasana uudestaan"
           current: "Nykyinen salasana"
-          current_info: "(Tarvitsemme nykyisen salasanasi vahvistaaksemme muutokset)"
+          current_info: "Tarvitsemme nykyisen salasanasi vahvistaaksemme muutokset."
+          waiting_confirmation: "Vahvistusta odotetan sähköpostille: %{email}"
         submit: "Päivitä"
         unhappy:
           title: "Poista tunnukseni"
@@ -116,8 +128,10 @@ fi:
           password: "Salasana*"
           password_info: "Vähintään %{count} merkkiä"
           confirmation: "Salasana uudestaan*"
-          privacy_policy_consent: "Käyttöehdot"
-          privacy_policy_consent_label: " Hyväksyn, että antamani henkilötiedot tallennetaan fuksipassin henkilötietorekisteriin. Lisätietoja fuksipassin <a href='https://www.tko-aly.fi/freshman_privacy' target='_blank'>tietosuojaselosteesta</a>."
+          privacy_policy_consent:
+            title: "Tietosuojaseloste"
+            label: "Hyväksyn, että antamani henkilötiedot tallennetaan fuksipassin henkilötietorekisteriin."
+            more_info: "Lisätietoja fuksipassin tietosuojaselosteesta."
         required: "Pakolliset kentät merkitty *-merkillä"
         submit: "Rekisteröidy"
     sessions:
@@ -160,11 +174,71 @@ fi:
         participation: "Pisteitä osallistumisesta"
         for_freshers: "Pisteitä fuksille osallistumissta"
         request: "Ano pisteitä"
+      extra_points:
+        title: "Lisäpisteet"
+        add: "Lisää ylimääräinen tehtävä"
+      edit: "Muokkaa tapahtumaa"
+    edit:
+      title: "Tapahtuman muokkaus"
+    new:
+      title: "Uusi tapahtuma"
+      copy: "Kopioi TKO-älyn kalenterista"
+  participations:
+    states:
+      confirmed: "Vahvistettu"
+      unconfirmed: "Vahvistamaton"
+    edit:
+      title: "Osallistumisen muokkaus"
+    new:
+      title: "Uusi osallistuminen"
+  overview:
+    unconfirmed:
+      title: "Vahvistamattomat osallistumiset"
+      event: "Tapahtuma"
+      task: "Tehtävä"
+      user: "Käyttäjä"
+      all_accepted: "Kaikki osallistumiset on hyväksytty."
+    filters:
+      title: "Suodattimet"
+      reset: "nollaa"
+      events: "Tapahtumat"
+      tasks: "Tehtävät"
+      users: "Käyttäjät"
+  years:
+    edit:
+      title: "Vuoden muokkaus"
+    new:
+      title: "Uusi vuosi"
+  models:
+    participation:
+      model_name: "osallistuminen"
+      task_name: "tehtävä"
+      description: "Kuvaus"
+      points_for_participation: "Pisteet"
+      fresher_can_participate: "Fuksit saavat osallistua?"
+      tutor_can_participate: "Tuutorit saavat osallistua?"
+    event:
+      model_name: "tapahtuma"
+      name: "Nimi"
+      date: "Päiväys"
+      url: "Url"
+      points_for_participation: "Pisteitä osallistumisesta"
+      fresher_can_participate: "Fuksit saavat osallistua?"
+      tutor_can_participate: "Tuutorit saavat osallistua?"
+    year:
+      year: "Vuosi"
   notes:
     dokaa: "Dokasi fuksipassin"
     plz_no: "Älä plz"
+    points: "Pisteet"
+    hide_points: "Piiilota pisteet"
+    description: "Kuvaus"
+    give_points: "Anna pisteitä"
     not_shown: "Harmaalla taustalla olevat pisteet piilossa fukseilta."
     comment_tutor:
+      description: "Kuvaus"
+      like: "Anna tykkäys 👍"
+      dislike: "Anna epätykkäys 👎"
       success: "Tallennettu onnistuneesti"
       error: "Virhe, tallenus epäonnistui"
   user:
@@ -176,13 +250,21 @@ fi:
       top_freshmen: "Parhaat fuksit"
     show:
       points:
+        points: "Pisteet"
         confirmed: "Vahvistetut pisteet"
         all: "Kaikki pisteet"
         real: "Todelliset pisteet"
       events:
         attended: "Tapahtumat, joihin olen osallistunut"
+        accepted: "Hyväksytyt tapahtumat"
+      notes:
+        written: "Annetut kommentit"
+        points: "Kommenteissa annetut pisteet"
       comments: "Kommentit"
       destroy:
         title: "Poista käyttäjä"
         btn: "Poista käyttäjä"
         confirmation: "Oletko varma?"
+      roles:
+        toggle_admin: "Kytke ylläpitäjä -rooli"
+        toggle_tutor: "Kytke tuutori -rooli"
