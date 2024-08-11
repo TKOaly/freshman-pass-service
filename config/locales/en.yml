@@ -204,6 +204,11 @@ en:
       events: "Events"
       tasks: "Tasks"
       users: "Users"
+  years:
+    edit:
+      title: "Editing year"
+    new:
+      title: "New year"
   models:
     participation:
       model_name: "participation"
@@ -220,6 +225,8 @@ en:
       points_for_participation: "Points for participation"
       fresher_can_participate: "Freshmen are allowed to participate?"
       tutor_can_participate: "Tutors are allowed to participate?"
+    year:
+      year: "Year"
   notes:
     dokaa: "Dokasi fuksipassin / You ruined it."
     plz_no: "Don't do this plz"

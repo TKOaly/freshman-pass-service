@@ -1,6 +1,5 @@
-.container
-  h1 New year
-
+.container.d-flex.flex-column.gap-2
+  h1 "#{I18n.t('years.new.title')}"
   == render 'form'
-
-  = link_to 'Back', years_path
+  .d-flex.gap-2
+    = link_to I18n.t('common.navigation.back'), years_path
