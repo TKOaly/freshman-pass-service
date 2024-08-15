@@ -20,8 +20,7 @@ RUN bundle install
 
 COPY . .
 
-RUN bundle exec rails dartsass:build
-
+RUN rails assets:precompile
 EXPOSE 3000
 
 CMD ["bundle", "exec", "rails", "s", "-b", "0.0.0.0"]
