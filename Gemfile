@@ -46,12 +46,8 @@ end
 group :test do
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'sqlite3', '~> 1.4' # 2.0 support is borken
   gem 'capybara'
-  gem 'launchy'
-  gem 'webmock'
-  gem 'webdrivers', '~> 4.0', require: false
-  gem 'database_cleaner'
-
 end
 
 gem 'pg'

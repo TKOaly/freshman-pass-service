@@ -5,34 +5,42 @@ Fresher pass for the new students to compete on collecting points from events an
 ## Initial setup
 
 ```bash
-docker-compose build
-docker-compose run --rm web bin/rails db:setup && bin/rails db:seed
+docker compose build
+docker compose run --rm web rails db:setup && rails db:seed
 ```
 
 ## Running the app
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 ## Running the Rails console
 
-When the app is already running with `docker-compose` up, attach to the container:
+When the app is already running with `docker compose` up, attach to the container:
 
 ```bash
-docker-compose exec web bin/rails c
+docker compose exec web rails c
 ```
 
 When no container running yet, start up a new one:
 
 ```bash
-docker-compose run --rm web bin/rails c
+docker compose run --rm web rails c
 ```
 
 ## Running tests
 
 ```bash
-docker-compose run --rm web bin/rspec
+docker compose run --rm web bundle exec rspec
+```
+
+## Adding new dependencies
+
+After adding new dependency to Gemfile, run
+
+```bash
+docker compose run --rm web bundle install
 ```
 
 ## Creating admin account

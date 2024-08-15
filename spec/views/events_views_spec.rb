@@ -5,19 +5,26 @@ RSpec.describe 'Events view', type: :feature do
     before :each do
       user = FactoryBot.create(:user)
       user.add_role 'admin'
-      login_as(user)
+
+      visit login_path
+      fill_in 'user_login', with: user.username
+      fill_in 'user_password', with: "password123"
+      click_button 'Log in'
+
+      expect(page).to have_content('Signed in successfully')
+
       visit new_event_path
       fill_in 'event_name', with: 'test event'
-      fill_in 'event_points', with: 10
+      fill_in 'event_event_points', with: 10
 
-      click_button 'Create Event', match: :first
+      click_button 'Save', match: :first
     end
 
     it 'is created and displays info correctly' do
       event = Event.first
 
       expect(page).to have_content(event.name)
-      expect(page).to have_content("Possible points for participation: #{event.participations.first.points}")
+      expect(page).to have_content("Points for participation: #{event.participations.first.points}")
     end
 
     it 'adds points to event' do
@@ -40,19 +47,26 @@ RSpec.describe 'Events view', type: :feature do
     before :each do
       user = FactoryBot.create(:user)
       user.add_role 'admin'
-      login_as(user)
+
+      visit login_path
+      fill_in 'user_login', with: user.username
+      fill_in 'user_password', with: "password123"
+      click_button 'Log in'
+
+      expect(page).to have_content('Signed in successfully')
+
       visit new_participation_path
       fill_in 'participation_description', with: 'test event'
       fill_in 'participation_points', with: 10
 
-      click_button 'Create Participation', match: :first
+      click_button 'Save', match: :first
     end
 
     it 'is created and displays info correctly' do
       event = Participation.first
 
       expect(page).to have_content(event.name)
-      expect(page).to have_content("Possible points for participation: #{event.points}")
+      expect(page).to have_content("Points for participation: #{event.points}")
     end
 
     it 'is listed on main page' do
