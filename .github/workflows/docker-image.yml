@@ -2,9 +2,9 @@ name: Docker
 
 on:
   push:
-    branches: [ master, dev ]
+    branches: [master, dev]
   pull_request:
-    branches: [ master, dev ]
+    branches: [master, dev]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -12,31 +12,30 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    
     permissions:
       contents: read
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4.1.7
+
+      - name: Run tests
+        run: docker compose run web bundle exec rspec
 
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
       - name: Log into registry
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
+        uses: docker/login-action@v3.3.0
         with:
           registry: ${{ secrets.PRIVATE_REGISTRY_URL }}
           username: ${{ secrets.PRIVATE_REGISTRY_USER }}
           password: ${{ secrets.PRIVATE_REGISTRY_PW }}
-
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5.5.1
         with:
           images: ${{ secrets.PRIVATE_REGISTRY_URL }}/freshman-pass-service
           tags: |
@@ -45,11 +44,10 @@ jobs:
             type=ref,event=tag
             type=ref,event=pr
             type=sha
-
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@v6.6.1
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}

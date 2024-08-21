@@ -1,9 +1,7 @@
-.container
-  h1 Editing participation
-
+.container.d-flex.flex-column.gap-2
+  h1 #{I18n.t('participations.edit.title')}
   == render 'form'
-
-  = link_to 'Show', @participation
-  '  |
-  = link_to 'Back', participation_path(@participation)
+  .d-flex.gap-2
+    = link_to I18n.t('common.tools.show'), @participation
+    = link_to I18n.t('common.navigation.back'), participation_path(@participation)
 

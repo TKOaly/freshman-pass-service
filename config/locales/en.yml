@@ -21,114 +21,138 @@
 
 en:
   application:
-    title: 'Fresher pass'
+    title: "Fresher pass"
     header:
       links:
-        main: 'Fresher pass'
-        events: 'Events'
-        overview: 'Overview'
-        users: 'Users'
-        tutors: 'Tutors'
-        dokaa: 'Fuck shit up'
-        view_user: 'Profile'
-        about: 'About'
-        login: 'Login'
-        register: 'Register'
+        main: "Fresher pass"
+        events: "Events"
+        overview: "Overview"
+        users: "Users"
+        tutors: "Tutors"
+        dokaa: "Fuck shit up"
+        view_user: "Profile"
+        about: "About"
+        login: "Login"
+        register: "Register"
       messages:
-        dokaa: 'Seriously?'
+        dokaa: "Seriously?"
       language: "Language"
       menu:
-        view_user: 'Profile'
-        edit: 'Edit user detail'
-        logout: 'Logout'
+        view_user: "Profile"
+        edit: "Edit user detail"
+        logout: "Logout"
+  common:
+    errors:
+      unauthorized: "You are not authorized to access this page."
+      something: "Something happened"
+      save: "Following errors prohibited from being saved"
+    tools:
+      delete: "Delete"
+      edit: "Edit"
+      update: "Update"
+      save: "Save"
+      request: "Request"
+      add: "Add"
+      show: "Show"
+      accept: "Accept"
+    navigation:
+      back: "Back"
+      toggle: "Toggle navigation"
+    warnings:
+      sure: "Are you sure?"
+      delete: "Are you sure you want to delete this %{model_name}?"
   about:
     index:
-      title: 'Fresher pass'
-      text1: 'Fresher pass was created by'
-      text2: 'and'
-      text3: ' (Julius is not anymore in charge of the support, contact Eetu). If you are having problems with it you can join to our Telegram channel'
+      title: "Fresher pass"
+      text1: "Fresher pass was created by"
+      text2: "and"
+      text3: " (Julius is not anymore in charge of the support, contact Eetu). If you are having problems with it you can join to our Telegram channel"
       text4: ". You can join even if you don't have any problems :D"
-      text5: 'Fresher pass was programmed with Ruby on Rails and is of course open source. If you want to make it better you can message to the channel or to the developers mentioned before.'
-      text6: 'Github of the project can be found '
-      text7: '. Well made pull requests can earn you points (and/or beer). Minus points are given from complaints. Hacking can give you either depending on the level of mayhem.'
-      link: 'here'
+      text5: "Fresher pass was programmed with Ruby on Rails and is of course open source. If you want to make it better you can message to the channel or to the developers mentioned before."
+      text6: "Github of the project can be found "
+      text7: ". Well made pull requests can earn you points (and/or beer). Minus points are given from complaints. Hacking can give you either depending on the level of mayhem."
+      link: "here"
   devise:
     confirmations:
       new:
         title: "Resend confirmation instructions"
         submit: "Resend confirmation instructions"
         labels:
-          email: 'Email'
+          email: "Email"
     passwords:
       edit:
-        title: 'Change your password'
+        title: "Change your password"
         labels:
           password: "New password"
           confirmation: "Confirm new password"
         submit: "Change my password"
       new:
-        title: 'Forgot your password?'
+        title: "Forgot your password?"
         submit: "Send me reset password instructions"
         labels:
           email: "Email"
     registrations:
       edit:
-        title: 'Edit '
+        title: "Edit "
         labels:
-          image: 'Image'
-          remove_image: 'Remove image'
-          email: 'Email'
-          username: 'Username'
-          first_name: 'First name'
-          last_name: 'Last name'
-          irc_nick: 'Telegram / irc nick'
-          password: 'Password'
-          password_info: "(leave blank if you don't want to change it)"
-          confirmation: 'Password confirmation'
-          current: 'Current password'
-          current_info: "(we need your current password to confirm your changes)"
-        submit: 'Update'
+          image: "Image"
+          remove_image: "Remove image"
+          email: "Email"
+          username: "Username"
+          first_name: "First name"
+          last_name: "Last name"
+          irc_nick: "Telegram / irc nick"
+          password: "Password"
+          password_info: "Leave blank if you don't want to change it."
+          password_requirements: "Password needs to be atleast %{count} characters."
+          confirmation: "Password confirmation"
+          current: "Current password"
+          current_info: "We need your current password to confirm your changes."
+          waiting_confirmation: "Currently waiting confirmation for: %{email}"
+        submit: "Update"
         unhappy:
-          title: 'Cancel my account'
-          text: 'Unhappy?'
-          submit: 'Cancel my account'
-          confirmation: 'Are you sure?'
-          back: 'Hold up'
+          title: "Cancel my account"
+          text: "Unhappy?"
+          submit: "Cancel my account"
+          confirmation: "Are you sure?"
+          back: "Hold up"
       new:
-        title: 'Sign up'
+        title: "Sign up"
         labels:
-          image: 'Image'
-          email: 'Email*'
-          username: 'Username*'
-          first_name: 'First name*'
-          last_name: 'Last name*'
-          irc_nick: 'Telegram / irc nick'
-          password: 'Password*'
-          password_info: 'Characters minimum'
-          confirmation: 'Password confirmation*'
-          privacy_policy_consent: 'Privacy policy'
-          privacy_policy_consent_label: " I agree that the information I have given can be saved to personal data registry of Freshman pass service. More information at our <a href='https://www.tko-aly.fi/freshman_privacy' target='_blank'>Privacy Policy</a> page."
-        required: 'Required fields marked with *'
-        submit: 'Sign up'
+          image: "Image"
+          email: "Email*"
+          username: "Username*"
+          first_name: "First name*"
+          last_name: "Last name*"
+          irc_nick: "Telegram / irc nick"
+          password: "Password*"
+          password_requirements: "Password needs to be atleast %{count} characters"
+          confirmation: "Password confirmation*"
+          privacy_policy_consent:
+            title: "Privacy policy"
+            label: "I agree that the information I have given can be saved to personal data registry of Freshman pass service."
+            more_info: "More information at our Privacy Policy page."
+        required: "Required fields marked with *"
+        submit: "Sign up"
     sessions:
       new:
-        title: 'Log in'
-        submit: 'Log in'
+        title: "Log in"
+        submit: "Log in"
         labels:
           email_or_username: "Email or username"
           password: "Password"
           remember_me: "Remember me"
     unlocks:
       new:
-        title: 'Resend unlock instructions'
-        submit: 'Resend unlock instructions'
+        title: "Resend unlock instructions"
+        submit: "Resend unlock instructions"
     links:
-      link1: "Log in"
-      link2: "Sign up"
-      link3: "Forgot your password?"
-      link4: "Didn't receive confirmation instructions?"
-      link5: "Didn't receive unlock instructions?"
-      link6: "Sign in with"
+      login: "Log in"
+      signup: "Sign up"
+      forgot_password: "Forgot your password?"
+      confirmation: "Didn't receive confirmation instructions?"
+      unlock: "Didn't receive unlock instructions?"
+      signin_with: "Sign in with"
   events:
     index:
       title: "All events"
@@ -145,15 +169,102 @@ en:
         hide_btn: "Hide event"
         show_btn2: "Unhide challenge"
         hide_btn2: "Hide challenge"
+    show:
+      points:
+        participation: "Points for participation"
+        for_freshers: "Points for freshers for participation"
+        request: "Request points"
+      extra_points:
+        title: "Extra points"
+        add: "Add extra task"
+      edit: "Edit event"
+    edit:
+      title: "Editing event"
+    new:
+      title: "New event"
+      copy: "Copy from TKO-äly's calendar"
+  participations:
+    states:
+      confirmed: "Confirmed"
+      unconfirmed: "Unconfirmed"
+    edit:
+      title: "Editing participation"
+    new:
+      title: "New participation"
+  overview:
+    unconfirmed:
+      title: "Unconfirmed attendances"
+      event: "Event"
+      task: "Task"
+      user: "User"
+      all_accepted: "All attendances have been accepted."
+    filters:
+      title: "Filters"
+      reset: "reset"
+      events: "Events"
+      tasks: "Tasks"
+      users: "Users"
+  years:
+    edit:
+      title: "Editing year"
+    new:
+      title: "New year"
+  models:
+    participation:
+      model_name: "participation"
+      task_name: "task"
+      description: "Description"
+      points_for_participation: "Points"
+      fresher_can_participate: "Freshmen are allowed to participate?"
+      tutor_can_participate: "Tutors are allowed to participate?"
+    event:
+      model_name: "event"
+      name: "Name"
+      date: "Date"
+      url: "Url"
+      points_for_participation: "Points for participation"
+      fresher_can_participate: "Freshmen are allowed to participate?"
+      tutor_can_participate: "Tutors are allowed to participate?"
+    year:
+      year: "Year"
   notes:
     dokaa: "Dokasi fuksipassin / You ruined it."
     plz_no: "Don't do this plz"
+    points: "Points"
+    hide_points: "Hide points"
+    description: "Description"
+    give_points: "Gibe points"
+    not_shown: "Points with gray background are hidden from freshmen."
     comment_tutor:
+      description: "Description"
+      like: "Gibe like 👍"
+      dislike: "Gibe dislike 👎"
       success: "Saved successfully"
       error: "Error, not saved"
   user:
+    index:
+      users: "Users"
+      tutors: "Tutors"
+      admins: "Admins"
+      freshmen: "Freshmen"
+      top_freshmen: "Top freshmen"
     show:
+      points:
+        points: "Points"
+        confirmed: "Confirmed points"
+        all: "All points"
+        real: "Real points"
+      events:
+        attended: "Attended events"
+        accepted: "Accepted events"
+      notes:
+        written: "Notes written"
+        points: "Points given in notes"
+      comments: "Comments"
       destroy:
         title: "Remove user"
         btn: "Remove user"
         confirmation: "Are you sure?"
+      roles:
+        toggle_admin: "Toggle admin"
+        toggle_tutor: "Toggle tutor"

@@ -1,8 +1,8 @@
 div.event-form
-  h4 Extra points:
-  = form_for @participation_request do |f|
+  h4 #{I18n.t('events.show.extra_points.title')}:
+  = form_with(model: @participation_request, class: "d-flex flex-column gap-2") do |f|
     .field
       = f.collection_select(:participation_id, @unattended_participations, :id, :to_s, {}, {:class=>'form-control'})
       = f.hidden_field :participant_id, :value => current_user.id
-      br
-      = f.submit 'Request', :class => 'btn btn-primary'
+    .actions
+      = f.submit I18n.t('common.tools.request'), :class => 'btn btn-primary'

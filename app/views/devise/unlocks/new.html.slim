@@ -1,12 +1,11 @@
 h2
   | #{I18n.t('devise.unlocks.new.title')}
-= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
+= form_with(model: resource, as: resource_name, url: unlock_path(resource_name), method: :post, class: "d-flex flex-column gap-2") do |f|
+  = render "devise/shared/error_messages", resource: resource
   .field
-    = f.label :email
+    = f.label :email, class: "form-label"
     br
-    = f.email_field :email, autofocus: true
-  |&nbsp;
+    = f.email_field :email, class: "form-control", autofocus: true
   .actions
-    = f.submit I18n.t('devise.unlocks.new.submit')
+    = f.submit I18n.t('devise.unlocks.new.submit'), class: "btn btn-primary"
 = render "devise/shared/links"

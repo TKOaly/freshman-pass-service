@@ -1,12 +1,13 @@
-= form_for @year do |f|
+= form_with(model: @year, class: "d-flex flex-column gap-2") do |f|
   - if @year.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@year.errors.count, "error")} prohibited this year from being saved:"
-      ul
-        - @year.errors.full_messages.each do |message|
-          li = message
-
+        #error_explanation
+          h2 = I18n.t('common.errors.save')
+          ul
+            - @year.errors.full_messages.each do |message|
+              li = message
   .field
-    = f.label :integer
-    = f.text_field :integer
-  .actions = f.submit
+    = f.label :integer, I18n.t('models.year.year'), class: "form-label"
+    br
+    = f.text_field :integer, class: "form-control"
+  .actions
+    = f.submit I18n.t('common.tools.save'), class: "btn btn-primary"

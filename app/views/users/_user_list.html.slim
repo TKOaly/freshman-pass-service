@@ -1,13 +1,16 @@
-div.panel-heading
-  h4.panel-title
-    a data-toggle="collapse" href="##{title}" = title + ' ('+ users.count.to_s + ')'
-div.panel-collapse.collapse id="#{title}"
-  - users.each do |user|
-    li.list-group-item.justify-content-between
-      h4.mb-1 = link_to user.full_name, user
-      == render 'role_list', roles: user.roles
-      span.rolemanagement.label.label-success
-        = link_to 'Toggle tutor', toggle_tutor_user_path(user.id), method: :post, data: {confirm: 'Are you sure?'} if admin?
-      |&nbsp;
-      span.rolemanagement.label.label-danger
-        = link_to 'Toggle admin', toggle_admin_user_path(user.id), method: :post, data: {confirm: 'Are you sure?'} if admin?
+.accordion-item
+  h4.accordion-header
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="##{title}" aria-expanded="false" aria-controls="#{title}">
+      | #{title}
+    </button>
+  .accordion-collapse.collapse id="#{title}" data-bs-parent="#freshmen_pass-users"
+    ul.list-group.list-group-flush.py-2
+      - users.each do |user|
+        li.list-group-item.d-flex.justify-content-between.align-items-start
+          .ms-2.me-auto.d-flex.gap-2.flex-column
+            .fw-bold.d-flex.gap-2.align-items-center
+              = link_to user.full_name, user
+              == render 'role_list', roles: user.roles
+            .d-flex.gap-2.align-items-center
+              = link_to I18n.t('user.show.roles.toggle_tutor'), toggle_tutor_user_path(user.id), method: :post, class: "btn btn-success btn-sm", data: {turbo_confirm: I18n.t('common.warnings.sure')} if admin?
+              = link_to I18n.t('user.show.roles.toggle_admin'), toggle_admin_user_path(user.id), method: :post, class: "btn btn-danger btn-sm", data: {turbo_confirm: I18n.t('common.warnings.sure')} if admin?

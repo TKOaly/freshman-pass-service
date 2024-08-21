@@ -1,9 +1,11 @@
 - if participation
-  = form_for @participation_request do |f|
+  = form_with(model: @participation_request, class: "d-flex flex-column gap-2") do |f|
     .field
       = f.hidden_field :participation_id, :value => participation.id
       = f.hidden_field :participant_id, :value => current_user.id
-      = f.submit 'Request points', :class => 'btn btn-success'
+    .actions
+      = f.submit I18n.t('events.show.points.request'), :class => 'btn btn-primary'
 - else
-  span.btn.btn-success.disabled Request points
-  .line-break-sm
+  .d-flex.flex-column.gap-2
+    span.btn.btn-primary.disabled
+      = I18n.t('events.show.points.request')

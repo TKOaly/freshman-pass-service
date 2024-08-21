@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Logging in and out", type: :feature do
   before :each do
-    user = FactoryGirl.create(:user)
+    user = FactoryBot.create(:user)
   end
 
   describe "logging in" do
@@ -23,7 +23,15 @@ RSpec.describe "Logging in and out", type: :feature do
   describe 'user is able to log out' do
 
     it 'user is able to log out' do
-      login_as(User.first)
+      user = User.first
+
+      visit login_path
+      fill_in 'user_login', with: user.username
+      fill_in 'user_password', with: "password123"
+      click_button 'Log in'
+
+      expect(page).to have_content('Signed in successfully')
+
       visit logout_path
       expect(page).to have_content('Signed out successfully')
     end

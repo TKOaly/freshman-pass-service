@@ -1,8 +1,7 @@
-h1 Editing year
-
-== render 'form'
-
-= link_to 'Show', @year
-'  |
-= link_to 'Back', years_path
+.container.d-flex.flex-column.gap-2
+  h1 #{I18n.t('years.edit.title')}
+  == render 'form'
+  .d-flex.gap-2
+    = link_to I18n.t('common.tools.show'), @year
+    = link_to I18n.t('common.navigation.back') years_path
 

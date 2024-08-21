@@ -1,18 +1,26 @@
-h4 = "Unconfirmed attendances #{@selected_event ? "from #{@selected_event.name}" : ""}#{@selected_task ? "for #{@selected_task.description}" : ""}#{@selected_user ? "of #{@selected_user.full_name}" : ""}"
-div
+.d-flex.flex-column.gap-2
+  h4
+    = "#{I18n.t('overview.unconfirmed.title')}"
+  - if @selected_event
+    span
+      = "#{I18n.t('overview.unconfirmed.event')}: #{@selected_event.name}"
+  - if @selected_task
+    span
+      = "#{I18n.t('overview.unconfirmed.task')}: #{@selected_task.description}"
   - if @selected_user
+    span
+      = "#{I18n.t('overview.unconfirmed.user')}: #{@selected_user.full_name}"
     - if @selected_user.avatar.attached?
       = image_tag @selected_user.avatar_display
 
-
-div
-  br
   - if unconfirmed && !unconfirmed.empty?
-    = form_for(:p,
+    = form_with(model: p,
             url: accept_bulk_participation_requests_path,
-            method: :patch) do |f|
-      = f.select :participation_request_ids, unconfirmed.collect { |x| ["#{x.participation.name} —∗— #{x.participant.full_name}".html_safe, x.id] }, {}, :multiple => true, class: 'list-group'
-      = submit_tag('Accept', class: 'btn btn-default')
+            method: :patch, class: "d-flex flex-column gap-2") do |f|
+      .field
+        = f.select :participation_request_ids, unconfirmed.collect { |x| ["#{x.participation.name} —∗— #{x.participant.full_name}".html_safe, x.id] }, {}, :multiple => true, class: 'form-select'
+      .actions
+        = f.submit I18n.t('common.tools.accept'), class: "btn btn-primary"
   - else
     p
-      = 'All attendances have been accepted. '
+      = "#{I18n.t('overview.unconfirmed.all_accepted')}"

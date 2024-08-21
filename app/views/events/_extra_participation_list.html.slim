@@ -1,9 +1,8 @@
-h3 Extra points:
+h4 Extra points:
 ul
   - @event.participations.extras.each do |p|
     li
       = p.to_s + " "
-      = td = link_to glyph(:trash),
+      = td = link_to icon("trash", class: "icon danger"),
               p,
-              data: {confirm: 'Are you sure?'},
-              method: :delete
+              data: {turbo_confirm: I18n.t('common.warnings.sure'), turbo_method: "delete"}

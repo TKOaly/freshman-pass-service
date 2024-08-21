@@ -1,36 +1,31 @@
 .container
-  h2
-    = @event.name + ' '
-    small = @event.date
-  p
-    = link_to @event.event_link, @event.event_link if @event.event_link
-
-  p
-    ' Points for participation:
-    span.badge.badge-pill
-      = @event.event_points(current_user)
-  - if tutor?
-    p
-      ' Points for freshers for participation:
-      span.badge.badge-pill
-        = @event.event_points
-  - if !@event.future? && (!@main_participation.first || @main_participation.first&.can_participate?(current_user))
-    == render 'events/request_participation_button', participation: @main_participation.first
+  .d-flex.flex-column.gap-2
+    h2
+      = @event.name + ' '
+      small = @event.date
+    span
+      = link_to @event.event_link, @event.event_link if @event.event_link
+    span
+      ' #{I18n.t('events.show.points.participation')}:
+      span.badge.text-bg-success
+        = @event.event_points(current_user)
+    - if tutor?
+      span
+        '#{I18n.t('events.show.points.for_freshers')}:
+        span.badge.text-bg-success
+          = @event.event_points
+    - if !@event.future? && (!@main_participation.first || @main_participation.first&.can_participate?(current_user))
+      == render 'events/request_participation_button', participation: @main_participation.first
     - if @unattended_participations.any?
       == render 'participation_request_form'
   - if can? :create, Participation
-    .line-break-lg
-    h3 Edit event
-    == render 'add_participation'
+    h3 #{I18n.t('events.show.edit')}
+    == render 'add_extra_task'
     == render 'extra_participation_list'
     == render 'overview/unconfirmed_requests', unconfirmed: @event.participations.map { |p| p.participation_requests.unconfirmed }.first
-
-
-  br
-
-  - if can? :update, @event
-    = link_to 'Delete', @event, data: {confirm: 'Are you sure you want to delete this event?'}, method: :delete
-    '  |
-    = link_to 'Edit', edit_event_path(@event)
-    '  |
-  = link_to 'Back', events_path
+    - if can? :update, @event
+      = link_to 'Delete', @event, data: {confirm: 'Are you sure you want to delete this event?'}, method: :delete
+      '  |
+      = link_to 'Edit', edit_event_path(@event)
+      '  |
+    = link_to 'Back', events_path

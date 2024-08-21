@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+@import "bootstrap";
+
+body {
+  margin: 1%;
+}
+
+h3 {
+  color: gray;
+}
+
+.positive-score {
+  background-color: #019204;
+}
+
+.negative-score {
+  background-color: black;
+}
+
+.very-positive-score {
+  background-color: #3f8c41;
+}
+
+.form-inline div {
+  display: inline-block;
+}
+
+.form-inline input,
+label {
+  margin-right: 5px;
+}
+
+// Line breaks
+.line-break-xxs {
+  padding-bottom: 0.3em;
+}
+
+.line-break-xs {
+  padding-bottom: 0.5em;
+}
+
+.line-break-sm {
+  padding-bottom: 1em;
+}
+
+.line-break-md {
+  padding-bottom: 1.5em;
+}
+
+.line-break-lg {
+  padding-bottom: 2em;
+}
+
+.line-break-xlg {
+  padding-bottom: 3em;
+}
+
+.line-break-xx-lg {
+  padding-bottom: 4em;
+}
+
+.line-break-xxx-lg {
+  margin-bottom: 5em;
+}
+
+.line-break-xlg {
+  padding-bottom: 3em;
+}
+
+.icon {
+  height: 24px;
+  width: 24px;
+}
+
+.icon.danger {
+  color: var(--bs-danger);
+}

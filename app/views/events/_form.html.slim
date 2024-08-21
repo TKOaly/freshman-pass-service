@@ -1,35 +1,33 @@
-= form_for @event do |f|
+= form_with(model: @event, class: "d-flex flex-column gap-2") do |f|
   - if @event.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@event.errors.count, "error")} prohibited this event from being saved:"
+      h2 = I18n.t('common.errors.save')
       ul
         - @event.errors.full_messages.each do |message|
           li = message
-
   .field
-    = f.label :name
+    = f.label :name, I18n.t('models.event.name'), class: "form-label"
     br
-    = f.text_field :name, :value => selected_event ? selected_event['name'] : @event.name
+    = f.text_field :name, :value => selected_event ? selected_event['name'] : @event.name, class: "form-control"
   .field
-    = f.label :date
+    = f.label :date, I18n.t('models.event.date'), class: "form-label"
     br
     = f.date_select :date, :selected => !selected_event ? (@event.date || Time.now) : Time.parse(selected_event['starts'])
   .field
-    = f.label :url
+    = f.label :url, I18n.t('models.event.url'), class: "form-label"
     br
-    = f.text_field :event_link, :value => selected_event ? "http://tko-aly.fi/event/#{selected_event['id']}" : @event.event_link
+    = f.text_field :event_link, :value => selected_event ? "http://tko-aly.fi/event/#{selected_event['id']}" : @event.event_link, class: "form-control"
   .field
-    = f.label :points_for_participation
+    = f.label :points_for_participation, I18n.t('models.event.points_for_participation'), class: "form-label"
     br
-    = f.number_field :event_points, :value => @event.id.nil? ? 0 : @event.participations.first&.points
+    = f.number_field :event_points, :value => @event.id.nil? ? 0 : @event.participations.first&.points, class: "form-control"
+  .field.d-flex.gap-2
+    = f.check_box :fresher_can_participate, { checked: @event.id.nil? ? true : @event.participations.first&.fresher_can_participate }, class:"form-check-input"
+    = f.label :fresher_can_participate, I18n.t('models.event.fresher_can_participate'), class: "form-check-label"
+  .field.d-flex.gap-2
+    = f.check_box :tutor_can_participate, { checked: @event.id.nil? ? true : @event.participations.first&.tutor_can_participate  }, class:"form-check-input"
+    = f.label :tutor_can_participate, I18n.t('models.event.tutor_can_participate'), class: "form-check-label"
   .field
-    = f.label :fresher_can_participate, "Freshmen are allowed to participate?"
-    br
-    = f.check_box :fresher_can_participate, { checked: @event.id.nil? ? true : @event.participations.first&.fresher_can_participate }
-  .field
-    = f.label :tutor_can_participate, "Tutors are allowed to participate?"
-    br
-    = f.check_box :tutor_can_participate, { checked: @event.id.nil? ? true : @event.participations.first&.tutor_can_participate  }
-  = f.hidden_field :participation_type, :value => "task"
-  .line-break-sm
-  .actions = f.submit
+    = f.hidden_field :participation_type, :value => "task"
+  .actions
+    = f.submit I18n.t('common.tools.save'), class: "btn btn-primary"

@@ -1,17 +1,19 @@
 - events.each do |event|
-  li.list-group-item.justify-content-between
-    h4.mb-1 = link_to event.name, event, :"data-turbolinks" => false
-    - points = event.class == Participation ? event.participation_points(current_user) : event.points(current_user)
-    - event_points = event.event_points(current_user)
-    span[class="#{point_badge(points)}"]
-      = event_points == points ? points : "#{event_points} - #{points}"
-    = date(event)
-    |&nbsp;
-    - if show_hide_links && event.respond_to?(:date) && !@hidden_event_ids.include?(event.id)
-      = link_to I18n.t('events.index.list.hide_btn'), hide_event_path(event.id), :method => :put
-    - elsif show_hide_links && event.respond_to?(:date)
-      = link_to I18n.t('events.index.list.show_btn'), unhide_event_path(event.id), :method => :delete
-    - elsif show_hide_links && !event.respond_to?(:date) && !@hidden_participation_ids.include?(event.id)
-      = link_to I18n.t('events.index.list.hide_btn2'), hide_participation_path(event.id), :method => :put
-    - elsif show_hide_links && !event.respond_to?(:date)
-      = link_to I18n.t('events.index.list.show_btn2'), unhide_participation_path(event.id), :method => :delete
+  li.list-group-item.d-flex.justify-content-between.align-items-start
+    .ms-2.me-auto.d-flex.gap-2.flex-column
+      .fw-bold
+        = link_to event.name, event, :"data-turbo" => false
+      .d-flex.gap-2.align-items-center
+        - points = event.class == Participation ? event.participation_points(current_user) : event.points(current_user)
+        - event_points = event.event_points(current_user)
+        span.badge.text-bg-success
+          = event_points == points ? points : "#{event_points} - #{points}"
+        = date(event)
+        / - if show_hide_links && event.respond_to?(:date) && !@hidden_event_ids.include?(event.id)
+        /   = link_to I18n.t('events.index.list.hide_btn'), hide_event_path(event.id), :method => :put
+        / - elsif show_hide_links && event.respond_to?(:date)
+        /   = link_to I18n.t('events.index.list.show_btn'), unhide_event_path(event.id), :method => :delete
+        / - elsif show_hide_links && !event.respond_to?(:date) && !@hidden_participation_ids.include?(event.id)
+        /   = link_to I18n.t('events.index.list.hide_btn2'), hide_participation_path(event.id), :method => :put
+        / - elsif show_hide_links && !event.respond_to?(:date)
+        /   = link_to I18n.t('events.index.list.show_btn2'), unhide_participation_path(event.id), :method => :delete

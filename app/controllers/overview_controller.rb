@@ -4,7 +4,7 @@ class OverviewController < ApplicationController
 
   def index
     if fuksi?
-      redirect_back fallback_location: root_path, alert: "You are not authorized to access this page."
+      redirect_back fallback_location: root_path, alert: I18n.t('common.errors.unauthorized')
     else
       all_unconfirmed_requests = ParticipationRequest.unconfirmed
       if params[:event]

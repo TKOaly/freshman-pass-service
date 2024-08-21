@@ -3,51 +3,51 @@
     | #{I18n.t('devise.registrations.new.title')}
   p
     | #{I18n.t('devise.registrations.new.required')}
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = devise_error_messages!
+  = form_with(model: resource, as: resource_name, url: registration_path(resource_name), class: "d-flex flex-column gap-2") do |f|
+    = render "devise/shared/error_messages", resource: resource
     .field
-      = f.label I18n.t('devise.registrations.new.labels.image')
+      = f.label I18n.t('devise.registrations.new.labels.image'), class: "form-label"
       br
-      = f.file_field :avatar
+      = f.file_field :avatar, class: "form-control"
     .field
-      = f.label I18n.t('devise.registrations.new.labels.email')
+      = f.label I18n.t('devise.registrations.new.labels.email'), class: "form-label"
       br
-      = f.email_field :email, autofocus: true
+      = f.email_field :email, class: "form-control", autofocus: true
     .field
-      = f.label I18n.t('devise.registrations.new.labels.username')
+      = f.label I18n.t('devise.registrations.new.labels.username'), class: "form-label"
       br
-        = f.text_field :username
+      = f.text_field :username, class: "form-control"
     .field
-      = f.label I18n.t('devise.registrations.new.labels.first_name')
+      = f.label I18n.t('devise.registrations.new.labels.first_name'), class: "form-label"
       br
-        = f.text_field :first_name
+      = f.text_field :first_name, class: "form-control"
     .field
-      = f.label I18n.t('devise.registrations.new.labels.last_name')
+      = f.label I18n.t('devise.registrations.new.labels.last_name'), class: "form-label"
       br
-        = f.text_field :last_name
+      = f.text_field :last_name, class: "form-control"
     .field
-      = f.label I18n.t('devise.registrations.new.labels.irc_nick')
+      = f.label I18n.t('devise.registrations.new.labels.irc_nick'), class: "form-label"
       br
-        = f.text_field :irc_nick
+      = f.text_field :irc_nick, class: "form-control"
     .field
-      = f.label I18n.t('devise.registrations.new.labels.password')
+      = f.label I18n.t('devise.registrations.new.labels.password'), class: "form-label"
+      br
+      = f.password_field :password, class: "form-control", autocomplete: "off"
       - if @minimum_password_length
-        em
-          | (
-          = @minimum_password_length
-          |  #{I18n.t('devise.registrations.new.labels.password_info')})
-      br
-      = f.password_field :password, autocomplete: "off"
+        div.form-text#password-requirements
+          | #{I18n.t('devise.registrations.new.labels.password_requirements', count: @minimum_password_length)}
     .field
-      = f.label I18n.t('devise.registrations.new.labels.confirmation')
+      = f.label I18n.t('devise.registrations.new.labels.confirmation'), class: "form-label"
       br
-      = f.password_field :password_confirmation, autocomplete: "off"
+      = f.password_field :password_confirmation, class: "form-control", autocomplete: "off"
     .field
-      = f.label I18n.t('devise.registrations.new.labels.privacy_policy_consent')
+      = f.label I18n.t('devise.registrations.new.labels.privacy_policy_consent.title'), class: "form-label"
       br
-      = f.check_box :privacy_policy_consent
-      == I18n.t('devise.registrations.new.labels.privacy_policy_consent_label')
-    .line-break-md
+      = f.check_box :privacy_policy_consent, class:"form-check-input"
+      |&nbsp;
+      = I18n.t('devise.registrations.new.labels.privacy_policy_consent.label')
+      |&nbsp;
+      = link_to I18n.t('devise.registrations.new.labels.privacy_policy_consent.more_info'), 'https://www.tko-aly.fi/freshman_privacy', target: "_blank"
     .actions
-      = f.submit I18n.t('devise.registrations.new.submit')
+      = f.submit I18n.t('devise.registrations.new.submit'), class: "btn btn-primary"
   = render "devise/shared/links"

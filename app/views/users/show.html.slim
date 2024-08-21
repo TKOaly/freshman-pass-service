@@ -1,68 +1,53 @@
-.container
-  div.col-sm-12
-    ul.list-inline
-      li
-        h1
+.container.grid.gap-2
+  .row
+    .col-sm-12.col-md-6.d-flex.flex-column.gap-2
+      .d-flex.gap-2.align-items-center
+        h1.mb-0
           = @user.full_name
-          small
-            '
-            = @user.username
-      br
+        span
+          = @user.username
       == render 'role_list', roles: @user.roles
-
-      br
       - if @user.avatar.attached?
         = image_tag @user.avatar_display
-    br
-  - if @user.has_role? :fuksi
-    div.col-sm-12
-      p
-        ' Confirmed points:
-        = @user.confirmed_points
-        br
-        ' All points:
-        = @user.all_points
-        - if can? :edit, Event
+      - if @user.has_role? :fuksi
+        p
+          '#{I18n.t('user.show.points.confirmed')}:
+          = @user.confirmed_points
           br
-          ' Real points:
-          = @user.real_points
-  - elsif admin?
-    div.col-sm-12
-      p
-        'Points:
-        = @user.all_points
-  - if tutor? and @user.has_role? :tutor
-    div.col-sm-12
-      p
-        ' Accepted events:
-        = @user.accepted_participations.count
-        br
-        ' Notes written:
-        = @user.submitted_notes.count
-        br
-        ' Points given in notes:
-        = @user.points_given
-  - if @user.has_role? :fuksi
-    div.col-sm-12
-      == render 'users/note_form' if tutor?
-  - if @user.has_role? :tutor and fuksi?
-    div.col-sm-12
-      h3 Give feedback
-      == render 'feedback_form'
-  - if @user.has_role? :tutor and admin? and @user != current_user
-    div.col-sm-12
-      == render 'note_form'
-  div.col-sm-12.col-md-6
-    h3 Attended events
-    == render 'attended_events' if @user.participation_requests.any?
-  div.col-sm-12.col-md-5
-    h3 Comments
-    == render 'notes_list'
+          '#{I18n.t('user.show.points.all')}:
+          = @user.all_points
+          - if can? :edit, Event
+            br
+            '#{I18n.t('user.show.points.real')}:
+            = @user.real_points
+      - elsif admin?
+        p
+          '#{I18n.t('user.show.points.points')}:
+          = @user.all_points
+      - if tutor? and @user.has_role? :tutor
+        p
+          '#{I18n.t('user.show.events.accpeted')}:
+          = @user.accepted_participations.count
+          br
+          '#{I18n.t('user.show.notes.written')}:
+          = @user.submitted_notes.count
+          br
+          '#{I18n.t('user.show.notes.points')}:
+          = @user.points_given
+      - if @user.has_role? :fuksi
+        == render 'users/note_form' if tutor?
+      - if @user.has_role? :tutor and fuksi?
+        h3 Give feedback
+        == render 'feedback_form'
+      - if @user.has_role? :tutor and admin? and @user != current_user
+        == render 'note_form'
+      - if admin?
+        h3 #{I18n.t('user.show.destroy.title')}
+        = button_to I18n.t('user.show.destroy.btn'), user_path(@user), class: 'btn btn-danger', data: {confirm: I18n.t('user.show.destroy.confirmation')}, method: :delete
+    .col-sm-12.col-md-6.d-flex.flex-column.gap-2
+      h3 #{I18n.t('user.show.events.attended')}
+      ul.list-group.list-group-flush
+        == render 'attended_events' if @user.participation_requests.any?
+      h3 #{I18n.t('user.show.comments')}
+      == render 'notes_list'
 
-  - if admin?
-    br
-    div.col-sm-12
-      h3
-        | #{I18n.t('user.show.destroy.title')}
-      br
-      = button_to I18n.t('user.show.destroy.btn'), user_path(@user), class: 'btn btn-danger', data: {confirm: I18n.t('user.show.destroy.confirmation')}, method: :delete

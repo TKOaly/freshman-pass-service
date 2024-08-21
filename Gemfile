@@ -5,76 +5,52 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'rails', '~> 7.1.3.4'
+ruby '3.3.4'
 
-gem 'rails', '~> 5.2.1'
-ruby '2.6.10'
-
-gem 'dotenv-rails', require: 'dotenv/rails-now', groups: [:development, :test]
+gem 'dotenv', groups: [:development, :test]
 
 gem 'puma'
-gem 'sass-rails'
-gem 'uglifier'
-gem 'coffee-rails'
+gem 'terser'
 gem 'slim'
 gem 'slim-rails'
 gem 'rails-i18n'
-gem 'oj'
-# gem 'therubyracer', platforms: :ruby
+gem 'propshaft'
+gem "dartsass-rails", "~> 0.5.1"
+gem "rails_icons", "~> 0.3.0"
 
-gem 'bootstrap-sass'
+gem "importmap-rails", "~> 2.0.1"
+gem 'bootstrap', '~> 5.3.3'
+gem "popper_js", "~> 2.11"
 gem 'autoprefixer-rails'
-
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'jquery-turbolinks'
+gem 'turbo-rails'
 
 gem 'jbuilder'
-
 
 gem 'devise'
 gem 'cancancan'
 gem 'rolify'
-gem 'omniauth'
-gem 'omniauth-facebook'
-
-
-gem 'image_processing'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
   gem 'pry-rails'
-  gem 'sqlite3'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 6.1.3'
   gem 'simplecov', require: false
 end
 
 group :development do
-  gem 'web-console'
-  gem 'listen'
   gem 'spring'
   gem 'spring-watcher-listen'
-  gem 'better_errors'
   gem 'rack-mini-profiler', require: false
-  gem 'binding_of_caller'
-  gem 'railroady'
-
 end
 
 group :test do
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
+  gem 'sqlite3', '~> 1.4' # 2.0 support is borken
   gem 'capybara'
-  gem 'launchy'
-  gem 'webmock'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
-  gem 'database_cleaner'
-
 end
 
-group :production do
-  gem 'pg'
-end
+gem 'pg'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

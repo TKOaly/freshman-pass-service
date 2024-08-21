@@ -1,33 +1,35 @@
-.grid
+.container.grid.py-2
   .row
     .col-sm-12.col-md-4#unattended
       h3 = I18n.t('events.index.unattended_title')
       - if @unattended_events.any?
-        == render 'list', events: @unattended_events, show_hide_links: true
+        ul.list-group.list-group-flush
+          == render 'list', events: @unattended_events, show_hide_links: true
       - else
         p = I18n.t('events.index.no_events')
     - if @events.future.any?
       div.col-sm-12.col-md-4#upcoming
         h3 = I18n.t('events.index.upcoming_title')
-        == render 'list', events: @coming_events, show_hide_links: false
+        ul.list-group.list-group-flush
+          == render 'list', events: @coming_events, show_hide_links: false
     - if @participated_events.any?
       div.col-sm-12.col-md-4#attended
         h3 = I18n.t('events.index.attended_title')
-        == render 'list', events: @participated_events, show_hide_links: false
+        ul.list-group.list-group-flush
+          == render 'list', events: @participated_events, show_hide_links: false
     - if tutor?
       div.col-sm-12.col-md-4
         h3 = I18n.t('events.index.title')
-        == render 'list', events: @all_participations, show_hide_links: false
+        ul.list-group.list-group-flush
+          == render 'list', events: @all_participations, show_hide_links: false
   .row
-    .new-events
+    .d-flex.gap-2.py-2
       - if !@show_hidden
         = link_to I18n.t('events.index.show_btn'), events_path(show_hidden: true), :class => 'btn btn-sm btn-info'
       - if @show_hidden
         = link_to I18n.t('events.index.hide_btn'), events_path, :class => 'btn btn-sm btn-info'
-      .line-break-sm
       - if can? :create, Event
         = link_to I18n.t('events.index.new_btn'), new_event_path, :class => 'btn btn-sm btn-info'
-        |&nbsp;
       - if can? :create, Participation
         = link_to I18n.t('events.index.new_task_btn'), new_participation_path, :class => 'btn btn-sm btn-info'
 

@@ -1,8 +1,7 @@
 class User < ApplicationRecord
   rolify
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :lockable, :timeoutable,
-         :omniauthable, :omniauth_providers => []
+         :recoverable, :rememberable, :trackable, :validatable, :lockable, :timeoutable
 
   has_one_attached :avatar
 
@@ -28,7 +27,7 @@ class User < ApplicationRecord
             :presence => true,
             inclusion: { in: [ true ] }
   validates :username,
-            length: { 
+            length: {
                 maximum: 32, minimum: 2
             },
             :presence => true,
@@ -121,18 +120,6 @@ class User < ApplicationRecord
       remove_role "admin"
     else
       add_role "admin"
-    end
-  end
-
-
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.email = auth.info.email
-      user.first_name = auth.info.first_name
-      user.last_name = auth.info.last_name
-      user.password = Devise.friendly_token[0, 20]
     end
   end
 

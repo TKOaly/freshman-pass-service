@@ -21,107 +21,131 @@
 
 fi:
   application:
-    title: 'Fuksipassi'
+    title: "Fuksipassi"
     header:
       links:
-        main: 'Fuksipassi'
-        events: 'Tapahtumat'
-        overview: 'Yleiskatsaus'
-        users: 'Käyttäjät'
-        tutors: 'Tuutorit'
-        dokaa: 'Dokaa fuksipassi'
-        view_user: 'Profiili'
-        about: 'Tietoa'
-        login: 'Kirjaudu'
-        register: 'Rekisteröidy'
+        main: "Fuksipassi"
+        events: "Tapahtumat"
+        overview: "Yleiskatsaus"
+        users: "Käyttäjät"
+        tutors: "Tuutorit"
+        dokaa: "Dokaa fuksipassi"
+        view_user: "Profiili"
+        about: "Tietoa"
+        login: "Kirjaudu"
+        register: "Rekisteröidy"
       messages:
-        dokaa: 'Ootko nyt ihan vitun varma? :D'
+        dokaa: "Ootko nyt ihan vitun varma? :D"
       language: "Kieli"
       menu:
-        view_user: 'Profiili'
-        edit: 'Muokkaa käyttäjätietoja'
-        logout: 'Kirjaudu ulos'
+        view_user: "Profiili"
+        edit: "Muokkaa käyttäjätietoja"
+        logout: "Kirjaudu ulos"
+  common:
+    errors:
+      unauthorized: "Sinulla ei ole oikeuksia tälle sivulle."
+      something: "Jotain tapahtui"
+      save: "Seuraavat virheet estivät tallentamisen"
+    tools:
+      delete: "Poista"
+      edit: "Muokkaa"
+      update: "Päivitä"
+      save: "Tallenna"
+      request: "Ano"
+      add: "Lisää"
+      show: "Näytä"
+      accept: "Hyväksy"
+    navigation:
+      back: "Takaisin"
+      toggle: "Näytä/piilota valikko"
+    warnings:
+      sure: "Oletko varma?"
+      delete: "Oletko varma, että haluat poistaa tämän %{model_name}?"
   about:
     index:
-      title: 'Fuksipassi'
-      text1: 'Fuksipassin loi'
-      text2: 'ja'
-      text3: ' (Julius ei enää vastaa ylläpidosta). Ongelmatilanteissa liity Telegram-kanavalle'
-      text4: '. Tai ihan muuten vaan :D'
-      text5: 'Fuksipassi on tehty Ruby on Railsilla, ja on tietenkin open source. Jos haluat kehittää sitä, suosittelemme liittymään ylläolevalle kanavalle, tai juttelemaan ko. henkilöille.'
-      text6: 'Projektin github on '
-      text7: '. Asiallisista pull-requesteistä saa tietenkin fuksipisteitä (ja/tai kaljaa). Koodista valittamisesta saa miinuspisteitä. Hakkeroinnista plus tai miinus, riippuen mayhemin tasosta.'
-      link: 'täällä'
+      title: "Fuksipassi"
+      text1: "Fuksipassin loi"
+      text2: "ja"
+      text3: " (Julius ei enää vastaa ylläpidosta). Ongelmatilanteissa liity Telegram-kanavalle"
+      text4: ". Tai ihan muuten vaan :D"
+      text5: "Fuksipassi on tehty Ruby on Railsilla, ja on tietenkin open source. Jos haluat kehittää sitä, suosittelemme liittymään ylläolevalle kanavalle, tai juttelemaan ko. henkilöille."
+      text6: "Projektin github on "
+      text7: ". Asiallisista pull-requesteistä saa tietenkin fuksipisteitä (ja/tai kaljaa). Koodista valittamisesta saa miinuspisteitä. Hakkeroinnista plus tai miinus, riippuen mayhemin tasosta."
+      link: "täällä"
   devise:
     confirmations:
       new:
         title: "Uudelleenlähetä sähköpostinvarmistus"
         submit: "Uudelleenlähetä sähköpostinvarmistus"
         labels:
-          email: 'Sähköposti'
+          email: "Sähköposti"
     passwords:
       edit:
-        title: 'Salasanan vaihto'
+        title: "Salasanan vaihto"
         labels:
           password: "Uusi salasana"
           confirmation: "Uusi salasana uudestaan"
         submit: "Vaihda salasana"
       new:
-        title: 'Unohditko salasanasi?'
+        title: "Unohditko salasanasi?"
         submit: "Lähetä minulle ohjeet salasanani uusimiseen"
         labels:
           email: "Sähköposti"
     registrations:
       edit:
-        title: 'Muokkaa '
+        title: "Muokkaa "
         labels:
-          image: 'Kuva'
-          remove_image: 'Poista kuva'
-          email: 'Sähköposti'
-          username: 'Käyttäjätunnus'
-          first_name: 'Etunimi'
-          last_name: 'Sukunimi'
-          irc_nick: 'Telegram / irc nick'
-          password: 'Salasana'
+          image: "Kuva"
+          remove_image: "Poista kuva"
+          email: "Sähköposti"
+          username: "Käyttäjätunnus"
+          first_name: "Etunimi"
+          last_name: "Sukunimi"
+          irc_nick: "Telegram / irc nick"
+          password: "Salasana"
           password_info: "(jätä tyhjäksi, jos et halua vaihtaa)"
-          confirmation: 'Salasana uudestaan'
-          current: 'Nykyinen salasana'
-          current_info: "(Tarvitsemme nykyisen salasanasi vahvistaaksemme muutokset)"
-        submit: 'Päivitä'
+          password_requirements: "Vähintään %{count} merkkiä"
+          confirmation: "Salasana uudestaan"
+          current: "Nykyinen salasana"
+          current_info: "Tarvitsemme nykyisen salasanasi vahvistaaksemme muutokset."
+          waiting_confirmation: "Vahvistusta odotetan sähköpostille: %{email}"
+        submit: "Päivitä"
         unhappy:
-          title: 'Poista tunnukseni'
-          text: 'Tyytymätön?'
-          submit: 'Poista tunnukseni'
-          confirmation: 'Oletko varma?'
-          back: 'EIKU'
+          title: "Poista tunnukseni"
+          text: "Tyytymätön?"
+          submit: "Poista tunnukseni"
+          confirmation: "Oletko varma?"
+          back: "EIKU"
       new:
-        title: 'Rekisteröidy'
+        title: "Rekisteröidy"
         labels:
-          image: 'Kuva'
-          email: 'Sähköpostiosoite*'
-          username: 'Käyttäjänimi*'
-          first_name: 'Etunimi*'
-          last_name: 'Sukunimi*'
-          irc_nick: 'Telegram / irc nick'
-          password: 'Salasana*'
-          password_info: 'Merkkejä vähintään'
-          confirmation: 'Salasana uudestaan*'
-          privacy_policy_consent: 'Käyttöehdot'
-          privacy_policy_consent_label: " Hyväksyn, että antamani henkilötiedot tallennetaan fuksipassin henkilötietorekisteriin. Lisätietoja fuksipassin <a href='https://www.tko-aly.fi/freshman_privacy' target='_blank'>tietosuojaselosteesta</a>."
-        required: 'Pakolliset kentät merkitty *-merkillä'
-        submit: 'Rekisteröidy'
+          image: "Kuva"
+          email: "Sähköpostiosoite*"
+          username: "Käyttäjänimi*"
+          first_name: "Etunimi*"
+          last_name: "Sukunimi*"
+          irc_nick: "Telegram / irc nick"
+          password: "Salasana*"
+          password_info: "Vähintään %{count} merkkiä"
+          confirmation: "Salasana uudestaan*"
+          privacy_policy_consent:
+            title: "Tietosuojaseloste"
+            label: "Hyväksyn, että antamani henkilötiedot tallennetaan fuksipassin henkilötietorekisteriin."
+            more_info: "Lisätietoja fuksipassin tietosuojaselosteesta."
+        required: "Pakolliset kentät merkitty *-merkillä"
+        submit: "Rekisteröidy"
     sessions:
       new:
-        title: 'Kirjaudu'
-        submit: 'Kirjaudu'
+        title: "Kirjaudu"
+        submit: "Kirjaudu"
         labels:
           email_or_username: "Sähköposti tai käyttäjätunnus"
           password: "Salasana"
           remember_me: "Muista minut"
     unlocks:
       new:
-        title: 'Uudelleenlähetä tilin avausohjeet'
-        submit: 'Uudelleenlähetä tilin avausohjeet'
+        title: "Uudelleenlähetä tilin avausohjeet"
+        submit: "Uudelleenlähetä tilin avausohjeet"
     links:
       link1: "Kirjaudu"
       link2: "Rekisteröidy"
@@ -145,15 +169,102 @@ fi:
         hide_btn: "Piilota tapahtuma"
         show_btn2: "Poista haasteen piilotus"
         hide_btn2: "Piilota haaste"
+    show:
+      points:
+        participation: "Pisteitä osallistumisesta"
+        for_freshers: "Pisteitä fuksille osallistumissta"
+        request: "Ano pisteitä"
+      extra_points:
+        title: "Lisäpisteet"
+        add: "Lisää ylimääräinen tehtävä"
+      edit: "Muokkaa tapahtumaa"
+    edit:
+      title: "Tapahtuman muokkaus"
+    new:
+      title: "Uusi tapahtuma"
+      copy: "Kopioi TKO-älyn kalenterista"
+  participations:
+    states:
+      confirmed: "Vahvistettu"
+      unconfirmed: "Vahvistamaton"
+    edit:
+      title: "Osallistumisen muokkaus"
+    new:
+      title: "Uusi osallistuminen"
+  overview:
+    unconfirmed:
+      title: "Vahvistamattomat osallistumiset"
+      event: "Tapahtuma"
+      task: "Tehtävä"
+      user: "Käyttäjä"
+      all_accepted: "Kaikki osallistumiset on hyväksytty."
+    filters:
+      title: "Suodattimet"
+      reset: "nollaa"
+      events: "Tapahtumat"
+      tasks: "Tehtävät"
+      users: "Käyttäjät"
+  years:
+    edit:
+      title: "Vuoden muokkaus"
+    new:
+      title: "Uusi vuosi"
+  models:
+    participation:
+      model_name: "osallistuminen"
+      task_name: "tehtävä"
+      description: "Kuvaus"
+      points_for_participation: "Pisteet"
+      fresher_can_participate: "Fuksit saavat osallistua?"
+      tutor_can_participate: "Tuutorit saavat osallistua?"
+    event:
+      model_name: "tapahtuma"
+      name: "Nimi"
+      date: "Päiväys"
+      url: "Url"
+      points_for_participation: "Pisteitä osallistumisesta"
+      fresher_can_participate: "Fuksit saavat osallistua?"
+      tutor_can_participate: "Tuutorit saavat osallistua?"
+    year:
+      year: "Vuosi"
   notes:
     dokaa: "Dokasi fuksipassin"
     plz_no: "Älä plz"
+    points: "Pisteet"
+    hide_points: "Piiilota pisteet"
+    description: "Kuvaus"
+    give_points: "Anna pisteitä"
+    not_shown: "Harmaalla taustalla olevat pisteet piilossa fukseilta."
     comment_tutor:
+      description: "Kuvaus"
+      like: "Anna tykkäys 👍"
+      dislike: "Anna epätykkäys 👎"
       success: "Tallennettu onnistuneesti"
       error: "Virhe, tallenus epäonnistui"
   user:
+    index:
+      users: "Käyttäjät"
+      tutors: "Tuutorit"
+      admins: "Ylläpitäjät"
+      freshmen: "Fuksit"
+      top_freshmen: "Parhaat fuksit"
     show:
+      points:
+        points: "Pisteet"
+        confirmed: "Vahvistetut pisteet"
+        all: "Kaikki pisteet"
+        real: "Todelliset pisteet"
+      events:
+        attended: "Tapahtumat, joihin olen osallistunut"
+        accepted: "Hyväksytyt tapahtumat"
+      notes:
+        written: "Annetut kommentit"
+        points: "Kommenteissa annetut pisteet"
+      comments: "Kommentit"
       destroy:
         title: "Poista käyttäjä"
         btn: "Poista käyttäjä"
         confirmation: "Oletko varma?"
+      roles:
+        toggle_admin: "Kytke ylläpitäjä -rooli"
+        toggle_tutor: "Kytke tuutori -rooli"

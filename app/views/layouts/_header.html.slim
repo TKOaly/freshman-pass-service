@@ -1,59 +1,54 @@
-nav.navbar.navbar-default role="navigation"
-  .container-fluid
-    .navbar-header
-      button.navbar-toggle data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      = link_to I18n.t('application.header.links.main'), current_user ? events_path : login_path, class: 'navbar-brand'
-    #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      ul.nav.navbar-nav
+nav.navbar.navbar-expand-lg.bg-body-tertiary.mb-4 role="navigation"
+  .container
+    a.navbar-brand href="#{current_user ? events_path : login_path}" #{I18n.t('application.header.links.main')}
+    button.navbar-toggler type="button" data-bs-toggle="collapse" data-bs-target="#freshmen_pass-mainmenu" aria-controls="freshmen_pass-mainmenu" aria-expanded="false" aria-label="#{I18n.t('common.navigation.toggle')}"
+        span.navbar-toggler-icon
+    #freshmen_pass-mainmenu.collapse.navbar-collapse.justify-content-between
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
         - if user_signed_in?
-          li
-            = link_to I18n.t('application.header.links.events'), events_path
+          li.nav-item
+            = link_to I18n.t('application.header.links.events'), events_path, class: 'nav-link'
         - if tutor?
-          li
-            = link_to text_with_badge(I18n.t('application.header.links.overview'), unaccepted_participations), overview_path, :"data-turbolinks" => false
+          li.nav-item
+            = link_to text_with_badge(I18n.t('application.header.links.overview'), unaccepted_participations), overview_path, class: 'nav-link',  :"data-turbo" => false
         - if tutor?
-          li
-            = link_to I18n.t('application.header.links.users'), users_path
+          li.nav-item
+            = link_to I18n.t('application.header.links.users'), users_path, class: 'nav-link'
         - if fuksi?
-          li
-            = link_to I18n.t('application.header.links.tutors'), users_path
+          li.nav-item
+            = link_to I18n.t('application.header.links.tutors'), users_path, class: 'nav-link'
         - if user_signed_in?
-          li
-            = link_to I18n.t('application.header.links.view_user'), current_user
-        li
-          = link_to I18n.t('application.header.links.about'), about_path
+          li.nav-item
+            = link_to I18n.t('application.header.links.view_user'), current_user, class: 'nav-link'
+        li.nav-item
+          = link_to I18n.t('application.header.links.about'), about_path, class: 'nav-link'
         - if user_signed_in?
           - unless can? :create, Event
-            li
-              = link_to I18n.t('application.header.links.dokaa'), dokaa_path, data: {confirm: I18n.t('application.header.messages.dokaa')}
-      ul.nav.navbar-nav.navbar-right
-        li.dropdown
-          a.dropdown-toggle data-toggle="dropdown" href="#"
+            li.nav-item
+              = link_to I18n.t('application.header.links.dokaa'), dokaa_path, class: 'nav-link',  data: { turbo_confirm: I18n.t('application.header.messages.dokaa')}
+      .navbar-nav.ms-auto.mb-2.mb-lg-0
+        li.nav-item.dropdown
+          a.nav-link.dropdown-toggle#freshmen_pass-lang-dropdown href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
             = I18n.t('application.header.language')
-            span.caret
-          ul.dropdown-menu role="menu"
+          ul.dropdown-menu
             - Language.all.each do |language|
               li
-                = link_to "#{language.name} - #{language.en_name}", change_language_path(language.id), :method => :put
+                = link_to "#{language.name} - #{language.en_name}", change_language_path(language.id), class:"dropdown-item", data: { turbo_method: :put }
         - unless user_signed_in?
-          li
-            = link_to I18n.t('application.header.links.login'), login_path
-          li
-            = link_to I18n.t('application.header.links.register'), register_path
+          li.nav-item
+            = link_to I18n.t('application.header.links.login'), login_path, class: 'nav-link'
+          li.nav-item
+            = link_to I18n.t('application.header.links.register'), register_path, class: 'nav-link'
         - else
-          li.dropdown
-            a.dropdown-toggle data-toggle="dropdown" href="#"
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle#freshmen_pass-user-dropdown href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
               = current_user.first_name
-              span.caret
-            ul.dropdown-menu role="menu"
+            ul.dropdown-menu
               li
-                = link_to I18n.t('application.header.menu.view_user'), current_user
+                = link_to I18n.t('application.header.menu.view_user'), current_user, class: "dropdown-item"
               li
-                = link_to I18n.t('application.header.menu.edit'), edit_user_registration_path
-              li.divider
+                = link_to I18n.t('application.header.menu.edit'), edit_user_registration_path, class: "dropdown-item"
               li
-                = link_to I18n.t('application.header.menu.logout'), logout_path
+                hr.divider
+              li
+                = link_to I18n.t('application.header.menu.logout'), logout_path, class: "dropdown-item"

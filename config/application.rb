@@ -14,5 +14,7 @@ module Fuksipassi
 
     config.i18n.available_locales = [:en, :fi]
     config.i18n.default_locale = :en
+    config.load_defaults 6.1
+    config.active_support.cache_format_version = 7.0
   end
 end

@@ -1,21 +1,25 @@
-= form_for @participation do |f|
+= form_with(model: @participation, class: "d-flex flex-column gap-2") do |f|
   - if @participation.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@participation.errors.count, "error")} prohibited this participation from being saved:"
-      ul
-        - @participation.errors.full_messages.each do |message|
-          li = message
+      #error_explanation
+        h2 = I18n.t('common.errors.save')
+        ul
+          - @participation.errors.full_messages.each do |message|
+            li = message
   .field
-    = f.label :task
-    = f.text_field :description
+    = f.label :task, I18n.t('models.participation.description'), class: "form-label"
+    br
+    = f.text_field :description, class: "form-control"
   .field
-    = f.label :points
-    = f.number_field :points
+    = f.label :points, I18n.t('models.participation.points'), class: "form-label"
+    br
+    = f.number_field :points, class: "form-control"
+  .field.d-flex.gap-2
+    = f.check_box :fresher_can_participate, { checked: true }, class:"form-check-input"
+    = f.label :fresher_can_participate, I18n.t('models.participation.fresher_can_participate'), class: "form-check-label"
+  .field.d-flex.gap-2
+    = f.check_box :tutor_can_participate, class:"form-check-input"
+    = f.label :tutor_can_participate, I18n.t('models.participation.tutor_can_participate'), class: "form-check-label"
   .field
-    = f.label :fresher_can_participate, "Freshmen are allowed to fulfill?"
-    = f.check_box :fresher_can_participate, { checked: true }
-  .field
-    = f.label :tutor_can_participate, "Tutors are allowed to fulfill?"
-    = f.check_box :tutor_can_participate
-  = f.hidden_field :participation_type, :value => "task"
-  .actions = f.submit
+    = f.hidden_field :participation_type, :value => "task"
+  .actions
+    = f.submit I18n.t('common.tools.save'), class: "btn btn-primary"
