@@ -9,7 +9,7 @@ div.event-form
       = p.label :points
       = p.number_field :points
     .field
-      = p.label :fresher_can_participate, "Freshmen are allowed to fulfill?"
+      = p.label :fresher_can_participate, "Freshers are allowed to fulfill?"
       = p.check_box :fresher_can_participate, {checked: @event.participations.events.first.fresher_can_participate}
     .field
       = p.label :tutor_can_participate, "Tutors are allowed to fulfill?"
