@@ -23,7 +23,7 @@
     br
     = f.number_field :event_points, :value => @event.id.nil? ? 0 : @event.participations.first&.points
   .field
-    = f.label :fresher_can_participate, "Freshmen are allowed to participate?"
+    = f.label :fresher_can_participate, "Freshers are allowed to participate?"
     br
     = f.check_box :fresher_can_participate, { checked: @event.id.nil? ? true : @event.participations.first&.fresher_can_participate }
   .field
