@@ -4,6 +4,9 @@ ul.list-inline
       - if role.name == 'admin' or role.name == 'tutor'
         span.label.label-success
           = role.name
+      - elsif role.name == 'sysadmin' or role.name == 'fresher & tutor responsible'
+        span.label.label-info
+          = role.name
       - else
         span.label.label-primary
           = role.name

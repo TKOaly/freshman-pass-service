@@ -12,13 +12,19 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     if admin?
+      # Freshers in point order
       @top_fuksit = @users.select { |u| u.can_receive_points? }.sort_by(&:real_points).reverse
+      # tutors in point order
       @top_tutors = @users.tutors.sort_by(&:real_points).reverse
     elsif tutor?
-      @top_fuksit = @users.select { |u| u.can_receive_points? }.sort_by(&:real_points).reverse
+      # Freshers in alphabetical order
+      @top_fuksit = @users.select { |u| u.can_receive_points? }.sort_by(&:full_name)
+      # Tutors in alphabetical order
       @top_tutors = @users.tutors.sort_by(&:full_name)
 
     elsif fuksi?
+      # Tutors in alphabetical order
+      # Freshers cannot see other freshers' names by design
       @top_tutors = @users.tutors.sort_by(&:full_name)
     end
   end
