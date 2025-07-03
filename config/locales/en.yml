@@ -46,7 +46,7 @@ en:
       title: 'Fresher pass'
       text1: 'Fresher pass was originally created by Eetu Mattila and Julius Uusinarkaus.'
       text2: 'The project is maintained by the TKO-äly sysadmin team. The current lead is'
-      text3: 'Feel free to contact them about any critical issues.'
+      text3: '. Feel free to contact them about any critical issues.'
       text4: 'Fresher & tutor responsibles can also be asked about anything related to the fresher pass.'
       text5: 'Fresher pass was programmed with Ruby on Rails and is of course open source. If you want to make it better you can (I believe in you).'
       text6: 'Github of the project can be found at '
