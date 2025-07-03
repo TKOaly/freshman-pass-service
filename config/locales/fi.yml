@@ -35,7 +35,7 @@ fi:
         login: 'Kirjaudu'
         register: 'Rekisteröidy'
       messages:
-        dokaa: 'Ootko nyt ihan vitun varma? :D'
+        dokaa: 'Ootko varma et aura riittää? :D'
       language: "Kieli"
       menu:
         view_user: 'Profiili'
@@ -146,8 +146,8 @@ fi:
         show_btn2: "Poista haasteen piilotus"
         hide_btn2: "Piilota haaste"
   notes:
-    dokaa: "Dokasi fuksipassin"
-    plz_no: "Älä plz"
+    dokaa: "koitti rizzlaa mut otti ison ällän"
+    plz_no: "L"
     comment_tutor:
       success: "Tallennettu onnistuneesti"
       error: "Virhe, tallenus epäonnistui"

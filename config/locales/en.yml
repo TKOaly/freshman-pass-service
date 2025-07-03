@@ -35,7 +35,7 @@ en:
         login: 'Login'
         register: 'Register'
       messages:
-        dokaa: 'Seriously?'
+        dokaa: 'Are you sure you have enough aura?'
       language: "Language"
       menu:
         view_user: 'Profile'
@@ -146,8 +146,8 @@ en:
         show_btn2: "Unhide challenge"
         hide_btn2: "Hide challenge"
   notes:
-    dokaa: "Dokasi fuksipassin / You ruined it."
-    plz_no: "Don't do this plz"
+    dokaa: "tried to rizzle but took a big L instead"
+    plz_no: "L"
     comment_tutor:
       success: "Saved successfully"
       error: "Error, not saved"
