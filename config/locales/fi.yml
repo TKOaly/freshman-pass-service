@@ -44,14 +44,14 @@ fi:
   about:
     index:
       title: 'Fuksipassi'
-      text1: 'Fuksipassin loi'
-      text2: 'ja'
-      text3: ' (Julius ei enää vastaa ylläpidosta). Ongelmatilanteissa liity Telegram-kanavalle'
-      text4: '. Tai ihan muuten vaan :D'
-      text5: 'Fuksipassi on tehty Ruby on Railsilla, ja on tietenkin open source. Jos haluat kehittää sitä, suosittelemme liittymään ylläolevalle kanavalle, tai juttelemaan ko. henkilöille.'
+      text1: 'Fuksipassin loi alun perin Eetu Mattila ja Julius Uusnarkaus.'
+      text2: 'Projektia ylläpitää TKO-älyn järjestelmävastaavatiimi. Tällä hetkellä uhrina on '
+      text3: 'Voit laittaa hälle kriittisistä ongelmista fuksipassin suhteen.'
+      text4: 'Fuksi- ja tuutorivastaavilta voi myös kysyä fuksipassiin liittyvistä asioista.'
+      text5: 'Fuksipassi on tehty Ruby on Railsilla, ja on tietenkin open source. Jos haluat kehittää sitä, voit tehdä niin (Uskon sun taitoihin).'
       text6: 'Projektin github on '
-      text7: '. Asiallisista pull-requesteistä saa tietenkin fuksipisteitä (ja/tai kaljaa). Koodista valittamisesta saa miinuspisteitä. Hakkeroinnista plus tai miinus, riippuen mayhemin tasosta.'
-      link: 'täällä'
+      text7: '. Asiallisista pull-requesteistä saa tietenkin fuksipisteitä (ja/tai juotavia). Huonosta valittamisesta saa miinuspisteitä. Hakkeroinnista plus tai miinus, riippuen mayhemin tasosta (tai putkaa jos rikoslakia rikotaan).'
+      link: 'TKOaly/freshman-pass-service'
   devise:
     confirmations:
       new:

@@ -44,14 +44,14 @@ en:
   about:
     index:
       title: 'Fresher pass'
-      text1: 'Fresher pass was created by'
-      text2: 'and'
-      text3: ' (Julius is not anymore in charge of the support, contact Eetu). If you are having problems with it you can join to our Telegram channel'
-      text4: ". You can join even if you don't have any problems :D"
-      text5: 'Fresher pass was programmed with Ruby on Rails and is of course open source. If you want to make it better you can message to the channel or to the developers mentioned before.'
-      text6: 'Github of the project can be found '
-      text7: '. Well made pull requests can earn you points (and/or beer). Minus points are given from complaints. Hacking can give you either depending on the level of mayhem.'
-      link: 'here'
+      text1: 'Fresher pass was originally created by Eetu Mattila and Julius Uusinarkaus.'
+      text2: 'The project is maintained by the TKO-äly sysadmin team. The current lead is'
+      text3: 'Feel free to contact them about any critical issues.'
+      text4: 'Fresher & tutor responsibles can also be asked about anything related to the fresher pass.'
+      text5: 'Fresher pass was programmed with Ruby on Rails and is of course open source. If you want to make it better you can (I believe in you).'
+      text6: 'Github of the project can be found at '
+      text7: '. Well made pull requests can earn you points (and/or beverages). Minus points are given for poorly formatted issues. Hacking can give you either depending on the level of mayhem (or jail, I guess).'
+      link: 'TKOaly/freshman-pass-service'
   devise:
     confirmations:
       new:
