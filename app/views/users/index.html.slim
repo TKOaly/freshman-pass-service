@@ -7,7 +7,7 @@ div.panel-group
     == render 'users/user_list', users: @users.with_role(:tutor), title: 'Tutors'
     == render 'users/user_list', users: @users.with_role(:admin), title: 'Admins'
 - if admin?
-  p You're an admin. Freshers and tutors are sorted based on points.
+  p You're an admin. Freshers and tutors are sorted based on points, and points are visible.
 - if tutor?
   h3 Freshers
   ul.list-group
@@ -15,7 +15,7 @@ div.panel-group
     li.list-group-item.justify-content-between
       = link_to fm.full_name, fm
       span.badge
-        = fm.real_points
+        = fm.real_points if admin?
 
 h3 Tutors
 ul.list-group
