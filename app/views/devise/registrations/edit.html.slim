@@ -5,32 +5,32 @@
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
     = devise_error_messages!
     .field
-      = f.label I18n.t('devise.registrations.edit.labels.image')
+      = f.label :avatar, I18n.t('devise.registrations.edit.labels.image')
       br
       = f.file_field :avatar
       - if f.object.avatar.attached?
         = f.check_box :remove_avatar
         |&nbsp;
-        = f.label I18n.t('devise.registrations.edit.labels.remove_image')
+        = f.label :remove_avatar, I18n.t('devise.registrations.edit.labels.remove_image')
         br
     .field
-      = f.label I18n.t('devise.registrations.edit.labels.email')
+      = f.label :email, I18n.t('devise.registrations.edit.labels.email')
       br
       = f.email_field :email, autofocus: true
     .field
-      = f.label I18n.t('devise.registrations.edit.labels.username')
+      = f.label :username, I18n.t('devise.registrations.edit.labels.username')
       br
         = f.text_field :username
     .field
-      = f.label I18n.t('devise.registrations.edit.labels.first_name')
+      = f.label :first_name, I18n.t('devise.registrations.edit.labels.first_name')
       br
         = f.text_field :first_name
     .field
-      = f.label I18n.t('devise.registrations.edit.labels.last_name')
+      = f.label :last_name, I18n.t('devise.registrations.edit.labels.last_name')
       br
         = f.text_field :last_name
     .field
-      = f.label I18n.t('devise.registrations.edit.labels.irc_nick')
+      = f.label :irc_nick, I18n.t('devise.registrations.edit.labels.irc_nick')
       br
         = f.text_field :irc_nick
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
@@ -38,7 +38,7 @@
         | Currently waiting confirmation for:
         = resource.unconfirmed_email
     .field
-      = f.label I18n.t('devise.registrations.edit.labels.password')
+      = f.label :password, I18n.t('devise.registrations.edit.labels.password')
       i
         | #{I18n.t('devise.registrations.edit.labels.password_info')}
       br
@@ -49,11 +49,11 @@
           = @minimum_password_length
           |  characters minimum
     .field
-      = f.label I18n.t('devise.registrations.edit.labels.confirmation')
+      = f.label :password_confirmation, I18n.t('devise.registrations.edit.labels.confirmation')
       br
       = f.password_field :password_confirmation, autocomplete: "off"
     .field
-      = f.label I18n.t('devise.registrations.edit.labels.current')
+      = f.label :current_password, I18n.t('devise.registrations.edit.labels.current')
       i
         | #{I18n.t('devise.registrations.edit.labels.current_info')}
       br

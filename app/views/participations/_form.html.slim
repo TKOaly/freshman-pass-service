@@ -6,7 +6,7 @@
         - @participation.errors.full_messages.each do |message|
           li = message
   .field
-    = f.label :task
+    = f.label :description, "Task"
     = f.text_field :description
   .field
     = f.label :points

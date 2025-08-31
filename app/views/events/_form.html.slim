@@ -15,7 +15,7 @@
     br
     = f.date_select :date, :selected => !selected_event ? (@event.date || Time.now) : Time.parse(selected_event['starts'])
   .field
-    = f.label :url
+    = f.label :event_link, "url"
     br
     = f.text_field :event_link, :value => selected_event ? "http://tko-aly.fi/event/#{selected_event['id']}" : @event.event_link
   .field

@@ -4,7 +4,7 @@ div.inline-form.form-inline
     = f.text_field :description, :class => 'form-control', :placeholder => 'description'
     - if @user.has_role? :fuksi
       = f.check_box :points_hidden, :class => 'form-check-input'
-      = f.label :hide_points
+      = f.label :points_hidden, 'Hide points'
     - else
       = f.hidden_field :points_hidden, :value => false
     = f.hidden_field :to_id, :value => @user.id
