@@ -20,6 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fi:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            avatar:
+              not_an_image: 'täytyy olla kuvatiedosto (PNG, JPEG, GIF, BMP tai WEBP)'
   application:
     title: 'Fuksipassi'
     header:

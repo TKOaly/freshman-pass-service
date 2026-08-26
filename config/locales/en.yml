@@ -20,6 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            avatar:
+              not_an_image: 'must be an image file (PNG, JPEG, GIF, BMP or WEBP)'
   application:
     title: 'Fresher pass'
     header:

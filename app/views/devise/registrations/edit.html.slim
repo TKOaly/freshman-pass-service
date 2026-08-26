@@ -7,7 +7,7 @@
     .field
       = f.label I18n.t('devise.registrations.edit.labels.image')
       br
-      = f.file_field :avatar
+      = f.file_field :avatar, accept: User::ALLOWED_AVATAR_CONTENT_TYPES.join(',')
       - if f.object.avatar.attached?
         = f.check_box :remove_avatar
         |&nbsp;
