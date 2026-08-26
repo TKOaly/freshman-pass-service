@@ -25,6 +25,12 @@ class Participation < ApplicationRecord
     participation_requests.unconfirmed.count
   end
 
+  # tasks have no event and therefore no date of their own
+  # they might belong to an event, in which case curry event date
+  def date
+    event&.date
+  end
+
   def can_participate?(user)
     if user.has_role? :fuksi and self.fresher_can_participate
       return true

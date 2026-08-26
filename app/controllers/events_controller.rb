@@ -12,21 +12,21 @@ class EventsController < ApplicationController
 
     if tutor?
       if params[:show_hidden]
-        @unattended_events = (Event.past - Participation.event.for_freshers_strictly.collect(&:event)) + Participation.tasks.for_tutors - current_user.participations.events_and_tasks.map { |u| u.event ? u.event : u }.sort_by{|e| e.date}
+        @unattended_events = sorted_by_date((Event.past - Participation.event.for_freshers_strictly.collect(&:event)) + Participation.tasks.for_tutors - current_user.participations.events_and_tasks.map { |u| u.event ? u.event : u })
       else
-        @unattended_events = (Event.past.unhidden(current_user.id) - Participation.event.for_freshers_strictly.collect(&:event)) + Participation.tasks.for_tutors.unhidden(current_user.id) - current_user.participations.events_and_tasks.map { |u| u.event ? u.event : u }.sort_by{|e| e.date}
+        @unattended_events = sorted_by_date((Event.past.unhidden(current_user.id) - Participation.event.for_freshers_strictly.collect(&:event)) + Participation.tasks.for_tutors.unhidden(current_user.id) - current_user.participations.events_and_tasks.map { |u| u.event ? u.event : u })
       end
-      @coming_events = (Event.future - Participation.event.for_freshers_strictly.collect(&:event)).sort_by{|e| e.date}
+      @coming_events = sorted_by_date(Event.future - Participation.event.for_freshers_strictly.collect(&:event))
     else
       if params[:show_hidden]
-        @unattended_events = (Event.past - Participation.event.for_tutors_strictly.collect(&:event)) + Participation.tasks.for_freshers - current_user.participations.events_and_tasks.map { |u| u.event ? u.event : u }.sort_by{|e| e.date}
+        @unattended_events = sorted_by_date((Event.past - Participation.event.for_tutors_strictly.collect(&:event)) + Participation.tasks.for_freshers - current_user.participations.events_and_tasks.map { |u| u.event ? u.event : u })
       else
-        @unattended_events = (Event.past.unhidden(current_user.id) - Participation.event.for_tutors_strictly.collect(&:event)) + Participation.tasks.for_freshers.unhidden(current_user.id) - current_user.participations.events_and_tasks.map { |u| u.event ? u.event : u }.sort_by{|e| e.date}
+        @unattended_events = sorted_by_date((Event.past.unhidden(current_user.id) - Participation.event.for_tutors_strictly.collect(&:event)) + Participation.tasks.for_freshers.unhidden(current_user.id) - current_user.participations.events_and_tasks.map { |u| u.event ? u.event : u })
       end
-      @coming_events = (Event.future - Participation.event.for_tutors_strictly.collect(&:event)).sort_by{|e| e.date}
+      @coming_events = sorted_by_date(Event.future - Participation.event.for_tutors_strictly.collect(&:event))
     end
-    @all_participations = Participation.events_and_tasks.map { |u| u.event ? u.event : u }.sort_by{|e| e.date}
-    @participated_events = current_user.participations.events_and_tasks.map { |u| u.event ? u.event : u }.sort_by{|e| e.date}
+    @all_participations = sorted_by_date(Participation.events_and_tasks.map { |u| u.event ? u.event : u })
+    @participated_events = sorted_by_date(current_user.participations.events_and_tasks.map { |u| u.event ? u.event : u })
     @hidden_event_ids = HiddenEvent.where(user_id: current_user.id).collect(&:event_id)
     @hidden_participation_ids = HiddenParticipation.where(user_id: current_user.id).collect(&:participation_id)
   end
@@ -120,6 +120,11 @@ class EventsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  # dateless entries (tasks) go last
+  def sorted_by_date(collection)
+    collection.sort_by { |e| [e.date ? 0 : 1, e.date || Date.new(0), e.name.to_s.downcase] }
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

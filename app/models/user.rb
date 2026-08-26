@@ -20,7 +20,11 @@ class User < ApplicationRecord
 
   attr_accessor :login, :remove_avatar
 
+  ALLOWED_AVATAR_CONTENT_TYPES = %w[image/png image/jpeg image/gif image/bmp image/webp].freeze
+
   scope :tutors, -> { with_role(:tutor) }
+
+  validate :avatar_must_be_an_image
 
 
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
@@ -52,15 +56,23 @@ class User < ApplicationRecord
             }
 
   def avatar_thumb
-    avatar.variant(resize: "50x50").processed if avatar.attached?
+    avatar_variant(resize: "50x50")
   end
 
   def avatar_list
-    avatar.variant(resize: "80x100").processed if avatar.attached?
+    avatar_variant(resize: "80x100")
   end
 
   def avatar_display
-    avatar.variant(resize: "300x300").processed if avatar.attached?
+    avatar_variant(resize: "300x300")
+  end
+
+  def avatar_image?
+    return false unless avatar.attached?
+
+    ALLOWED_AVATAR_CONTENT_TYPES.include?(avatar.blob.content_type) && avatar.blob.variable?
+  rescue StandardError
+    false
   end
 
   def full_name
@@ -147,6 +159,26 @@ class User < ApplicationRecord
     elsif conditions.has_key?(:username) || conditions.has_key?(:email)
       where(conditions.to_hash).first
     end
+  end
+
+  private
+
+  def avatar_variant(transformations)
+    return nil unless avatar_image?
+
+    avatar.variant(transformations).processed
+  rescue StandardError => e
+    Rails.logger.warn("Could not process avatar for user #{id}: #{e.class}: #{e.message}")
+    nil
+  end
+
+  def avatar_must_be_an_image
+    return unless avatar.attached?
+    return if ALLOWED_AVATAR_CONTENT_TYPES.include?(avatar.blob.content_type)
+
+    # Rails 5.2 stores the attachment on assignment, so a rejected file has to be removed here.
+    avatar.purge
+    errors.add(:avatar, :not_an_image)
   end
 
 end
