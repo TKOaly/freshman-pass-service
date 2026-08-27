@@ -44,6 +44,7 @@ en:
       messages:
         dokaa: 'Are you sure you have enough aura?'
       language: "Language"
+      dark_mode: "Toggle dark mode"
       menu:
         view_user: 'Profile'
         edit: 'Edit user detail'

@@ -44,6 +44,7 @@ fi:
       messages:
         dokaa: 'Ootko varma et aura riittää? :D'
       language: "Kieli"
+      dark_mode: "Tumma tila"
       menu:
         view_user: 'Profiili'
         edit: 'Muokkaa käyttäjätietoja'

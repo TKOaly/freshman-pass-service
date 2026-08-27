@@ -31,6 +31,9 @@ nav.navbar.navbar-default role="navigation"
             li
               = link_to I18n.t('application.header.links.dokaa'), dokaa_path, data: {confirm: I18n.t('application.header.messages.dokaa')}
       ul.nav.navbar-nav.navbar-right
+        li
+          button#dark-mode-toggle.btn.btn-link.navbar-btn type="button" title=I18n.t('application.header.dark_mode')
+            span.glyphicon.glyphicon-adjust aria-hidden="true"
         li.dropdown
           a.dropdown-toggle data-toggle="dropdown" href="#"
             = I18n.t('application.header.language')

@@ -5,6 +5,15 @@ html
     = I18n.t('application.title')
   = csrf_meta_tags
   link rel="manifest" href="#{asset_path 'manifest.json'}"
+  javascript:
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
   = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => 'reload'
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"

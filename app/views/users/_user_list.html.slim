@@ -6,8 +6,9 @@ div.panel-collapse.collapse id="#{title}"
     li.list-group-item.justify-content-between
       h4.mb-1 = link_to user.full_name, user
       == render 'role_list', roles: user.roles
-      span.rolemanagement.label.label-success
-        = link_to 'Toggle tutor', toggle_tutor_user_path(user.id), method: :post, data: {confirm: 'Are you sure?'} if admin?
-      |&nbsp;
-      span.rolemanagement.label.label-danger
-        = link_to 'Toggle admin', toggle_admin_user_path(user.id), method: :post, data: {confirm: 'Are you sure?'} if admin?
+      div.rolemanagement-wrapper
+        span.rolemanagement.label.label-success
+          = link_to 'Toggle tutor', toggle_tutor_user_path(user.id), method: :post, data: {confirm: 'Are you sure?'} if admin?
+        |&nbsp;
+        span.rolemanagement.label.label-danger
+          = link_to 'Toggle admin', toggle_admin_user_path(user.id), method: :post, data: {confirm: 'Are you sure?'} if admin?

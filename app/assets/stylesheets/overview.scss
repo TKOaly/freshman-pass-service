@@ -1,7 +1,7 @@
 .list-group > a.disabled {
   font-weight: bold;
   font-size: 1.5em;
-  color: darkslategray;
+  color: var(--muted-text);
 }
 .list-group > a.disabled:hover,
 .list-group > a.disabled:focus {

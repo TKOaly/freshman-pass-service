@@ -15,26 +15,181 @@
  */
 @import "bootstrap-sprockets"
 @import "bootstrap"
-
-//body
-//  margin: 5%
+@import "theme_variables"
 
 body
   margin: 1%
+  background-color: var(--body-bg)
+  color: var(--text-color)
+
+a
+  color: var(--link-color)
+
+a:hover,
+a:focus
+  color: var(--link-hover-color)
+
+.navbar-default
+  background-color: var(--navbar-bg)
+  border-color: var(--navbar-border)
+
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-brand,
+.navbar-default .navbar-toggle .icon-bar
+  color: var(--text-color)
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus
+  color: var(--navbar-link-hover-color)
+  background-color: var(--navbar-link-hover-bg)
+
+.panel,
+.panel-default
+  background-color: var(--panel-bg)
+  border-color: var(--panel-border)
+
+.panel-default > .panel-heading
+  background-color: var(--panel-heading-bg)
+  border-color: var(--panel-border)
+  color: var(--text-color)
+
+.list-group-item
+  background-color: var(--panel-bg)
+  border-color: var(--panel-border)
+  color: var(--text-color)
+
+.list-group-item:hover,
+.list-group-item:focus
+  background-color: var(--list-group-hover-bg)
+
+.well
+  background-color: var(--well-bg)
+  border-color: var(--panel-border)
+
+table,
+.table
+  color: var(--text-color)
+
+.table > thead > tr > th,
+.table > tbody > tr > td,
+.table > tbody > tr > th
+  border-color: var(--table-border)
+
+.form-control
+  background-color: var(--input-bg)
+  border-color: var(--input-border)
+  color: var(--text-color)
+
+.form-control:focus
+  border-color: var(--input-focus-border)
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px var(--input-focus-shadow)
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="file"]),
+textarea,
+select
+  background-color: var(--input-bg)
+  border-color: var(--input-border)
+  color: var(--text-color)
+
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]):not([type="file"]):focus,
+textarea:focus,
+select:focus
+  border-color: var(--input-focus-border)
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px var(--input-focus-shadow)
+
+input[type="checkbox"],
+input[type="radio"]
+  accent-color: var(--primary)
+
+.dropdown-menu
+  background-color: var(--dropdown-bg)
+  border-color: var(--dropdown-border)
+
+.dropdown-menu > li > a
+  color: var(--text-color)
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus
+  color: var(--dropdown-hover-color)
+  background-color: var(--dropdown-hover-bg)
+
+#dark-mode-toggle
+  color: var(--text-color)
+
+#dark-mode-toggle:hover,
+#dark-mode-toggle:focus
+  color: var(--link-hover-color)
+
+.btn-info
+  background-color: var(--info)
+  border-color: var(--info-border)
+
+.btn-info:hover,
+.btn-info:focus
+  background-color: var(--info-hover)
+  border-color: var(--info-hover-border)
+
+.btn-primary
+  background-color: var(--primary)
+  border-color: var(--primary)
+
+.btn-primary:hover,
+.btn-primary:focus
+  background-color: var(--primary-hover)
+  border-color: var(--primary-hover-border)
+
+.btn-danger
+  background-color: var(--danger)
+  border-color: var(--danger-border)
+
+.btn-danger:hover,
+.btn-danger:focus
+  background-color: var(--danger-hover)
+  border-color: var(--danger-hover-border)
+
+.alert-info
+  background-color: var(--alert-info-bg)
+  border-color: var(--alert-info-border)
+  color: var(--alert-info-text)
+
+.alert-danger
+  background-color: var(--alert-danger-bg)
+  border-color: var(--alert-danger-border)
+  color: var(--alert-danger-text)
+
+.label
+  color: white
+
+.label-primary
+  background-color: var(--primary)
+
+.label-success
+  background-color: var(--positive)
+
+.label-warning
+  background-color: var(--warning)
+
+.label-danger
+  background-color: var(--negative)
 
 
 h3
-  color: gray
+  color: var(--muted-text)
 
 .positive-score
-  background-color: #019204
+  background-color: var(--positive)
 
 .negative-score
-  background-color: black
+  background-color: var(--negative)
 
 .very-positive-score
-  background-color: #3f8c41
-
+  background-color: var(--very-positive)
 
 .form-inline div
   display: inline-block
