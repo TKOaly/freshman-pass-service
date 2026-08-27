@@ -5,7 +5,7 @@
     - event_points = event.event_points(current_user)
     span[class="#{point_badge(points)}"]
       = event_points == points ? points : "#{event_points} - #{points}"
-    = l(date(event), format: '%a %d.%m.%Y')
+    = date(event)
     |&nbsp;
     - if show_hide_links && event.respond_to?(:date) && !@hidden_event_ids.include?(event.id)
       = link_to I18n.t('events.index.list.hide_btn'), hide_event_path(event.id), :method => :put

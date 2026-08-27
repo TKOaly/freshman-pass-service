@@ -1,11 +1,12 @@
 module ApplicationHelper
   include Localizable
 
+  # Format 'date' info based on type; event or participation
   def date(object)
     if object.is_a? Event
-      object.date
+      l(object.date, format: '%a %d.%m.%Y')
     elsif object.event
-      object.event.date
+      l(object.event.date, format: '%a %d.%m.%Y')
     else
       english? ? "CHALLENGE" : "HAASTE"
     end
