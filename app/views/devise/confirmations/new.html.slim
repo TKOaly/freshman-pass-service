@@ -4,10 +4,10 @@
   = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
     = devise_error_messages!
     .field
-      = f.label I18n.t('devise.confirmations.new.labels.email')
+      = f.label :email, I18n.t('devise.confirmations.new.labels.email')
       br
       = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
     .line-break-md
     .actions
-      = f.submit I18.t('devise.confirmations.submit')
+      = f.submit I18n.t('devise.confirmations.submit')
   = render "devise/shared/links"

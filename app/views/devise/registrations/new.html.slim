@@ -6,31 +6,31 @@
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = devise_error_messages!
     .field
-      = f.label I18n.t('devise.registrations.new.labels.image')
+      = f.label :avatar, I18n.t('devise.registrations.new.labels.image')
       br
       = f.file_field :avatar, accept: User::ALLOWED_AVATAR_CONTENT_TYPES.join(',')
     .field
-      = f.label I18n.t('devise.registrations.new.labels.email')
+      = f.label :email, I18n.t('devise.registrations.new.labels.email')
       br
       = f.email_field :email, autofocus: true
     .field
-      = f.label I18n.t('devise.registrations.new.labels.username')
+      = f.label :username, I18n.t('devise.registrations.new.labels.username')
       br
         = f.text_field :username
     .field
-      = f.label I18n.t('devise.registrations.new.labels.first_name')
+      = f.label :first_name, I18n.t('devise.registrations.new.labels.first_name')
       br
         = f.text_field :first_name
     .field
-      = f.label I18n.t('devise.registrations.new.labels.last_name')
+      = f.label :last_name, I18n.t('devise.registrations.new.labels.last_name')
       br
         = f.text_field :last_name
     .field
-      = f.label I18n.t('devise.registrations.new.labels.irc_nick')
+      = f.label :irc_nick, I18n.t('devise.registrations.new.labels.irc_nick')
       br
         = f.text_field :irc_nick
     .field
-      = f.label I18n.t('devise.registrations.new.labels.password')
+      = f.label :password, I18n.t('devise.registrations.new.labels.password')
       - if @minimum_password_length
         em
           | (
@@ -39,11 +39,11 @@
       br
       = f.password_field :password, autocomplete: "off"
     .field
-      = f.label I18n.t('devise.registrations.new.labels.confirmation')
+      = f.label :password_confirmation, I18n.t('devise.registrations.new.labels.confirmation')
       br
       = f.password_field :password_confirmation, autocomplete: "off"
     .field
-      = f.label I18n.t('devise.registrations.new.labels.privacy_policy_consent')
+      = f.label :privacy_policy_consent, I18n.t('devise.registrations.new.labels.privacy_policy_consent')
       br
       = f.check_box :privacy_policy_consent
       == I18n.t('devise.registrations.new.labels.privacy_policy_consent_label')
