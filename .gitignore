@@ -25,3 +25,6 @@
 
 coverage
 
+# Precompiled assets are generated at build/deploy time, not committed.
+/public/assets
+

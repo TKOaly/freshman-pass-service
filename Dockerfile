@@ -34,6 +34,9 @@ RUN bundle install
 
 COPY . .
 
+# Precompile so public/assets is always in sync with the current source (not committed to git).
+RUN SECRET_KEY_BASE=dummy-build-secret RAILS_ENV=production bundle exec rails assets:precompile
+
 # ENTRYPOINT ["./entrypoint.sh"]
 
 EXPOSE 3000
