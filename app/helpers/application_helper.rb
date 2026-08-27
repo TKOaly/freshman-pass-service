@@ -1,16 +1,22 @@
 module ApplicationHelper
+  include Localizable
+
   def date(object)
     if object.is_a? Event
       object.date
     elsif object.event
       object.event.date
     else
-      if current_user.language&.name == 'English'
-        "CHALLENGE"
-      else
-        "HAASTE"
-      end
+      english? ? "CHALLENGE" : "HAASTE"
     end
+  end
+
+  def english?
+    current_user&.language&.name == 'English'
+  end
+
+  def localize_text(text, english = english?)
+    localize(text, english)
   end
 
   def point_badge(points=0)

@@ -1,6 +1,6 @@
 .container
   h2
-    = @event.name + ' '
+    = @event.display_name(english?) + ' '
     small = @event.date
   p
     = link_to @event.event_link, @event.event_link if @event.event_link

@@ -10,7 +10,7 @@ h4
     ul.nav.flex-sm-column
       - events.each do |event|
         li class= "nav-item"
-          = link_to text_with_badge(event.name, event.unconfirmed_count), overview_path(event: event.id), class: 'nav-link', :"data-turbolinks" => false
+          = link_to text_with_badge(event.display_name(english?), event.unconfirmed_count), overview_path(event: event.id), class: 'nav-link', :"data-turbolinks" => false
   .panel-heading
     h4.panel-title
       a data-toggle="collapse" href="#tasks" = 'Tasks' + ' ('+ tasks.count.to_s + ')'
@@ -18,7 +18,7 @@ h4
     ul.nav.flex-sm-column
       - tasks.each do |task|
         li class= "nav-item"
-          = link_to text_with_badge(task.description, task.unconfirmed_count), overview_path(task: task.id), :"data-turbolinks" => false
+          = link_to text_with_badge(task.display_name(english?), task.unconfirmed_count), overview_path(task: task.id), :"data-turbolinks" => false
   .panel-heading
     h4.panel-title
       a data-toggle="collapse" href="#users" = 'Users' + ' ('+ users.count.to_s + ')'

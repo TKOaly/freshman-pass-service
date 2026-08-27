@@ -1,6 +1,6 @@
 - events.each do |event|
   li.list-group-item.justify-content-between
-    h4.mb-1 = link_to event.name, event, :"data-turbolinks" => false
+    h4.mb-1 = link_to event.display_name(english?), event, :"data-turbolinks" => false
     - points = event.class == Participation ? event.participation_points(current_user) : event.points(current_user)
     - event_points = event.event_points(current_user)
     span[class="#{point_badge(points)}"]

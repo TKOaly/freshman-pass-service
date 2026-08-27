@@ -1,4 +1,4 @@
-h4 = "Unconfirmed attendances #{@selected_event ? "from #{@selected_event.name}" : ""}#{@selected_task ? "for #{@selected_task.description}" : ""}#{@selected_user ? "of #{@selected_user.full_name}" : ""}"
+h4 = "Unconfirmed attendances #{@selected_event ? "from #{@selected_event.display_name(english?)}" : ""}#{@selected_task ? "for #{@selected_task.display_name(english?)}" : ""}#{@selected_user ? "of #{@selected_user.full_name}" : ""}"
 div
   - if @selected_user
     - if (avatar = @selected_user.avatar_display)
@@ -11,7 +11,7 @@ div
     = form_for(:p,
             url: accept_bulk_participation_requests_path,
             method: :patch) do |f|
-      = f.select :participation_request_ids, unconfirmed.collect { |x| ["#{x.participation.name} —∗— #{x.participant.full_name}".html_safe, x.id] }, {}, :multiple => true, class: 'list-group'
+      = f.select :participation_request_ids, unconfirmed.collect { |x| ["#{x.participation.display_name(english?)} —∗— #{x.participant.full_name}".html_safe, x.id] }, {}, :multiple => true, class: 'list-group'
       = submit_tag('Accept', class: 'btn btn-default')
   - else
     p

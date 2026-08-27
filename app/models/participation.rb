@@ -1,4 +1,6 @@
 class Participation < ApplicationRecord
+  include Localizable
+
   enum participation_type: [:event, :event_extra, :task]
   belongs_to :event, required: false
   has_many :participation_requests, dependent: :destroy
@@ -48,6 +50,16 @@ class Participation < ApplicationRecord
       "#{event.name} - #{description}"
     elsif participation_type == 'task'
       description
+    end
+  end
+
+  def display_name(english = false)
+    if participation_type == 'event'
+      event.display_name(english)
+    elsif participation_type == 'event_extra'
+      "#{event.display_name(english)} - #{localize(description, english)}"
+    elsif participation_type == 'task'
+      localize(description, english)
     end
   end
 

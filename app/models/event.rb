@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  include Localizable
+
   has_many :participations, dependent: :destroy
   has_many :participation_requests, through: :participations
   has_many :hidden_events, dependent: :destroy
@@ -47,6 +49,10 @@ class Event < ApplicationRecord
 
   def future?
     date >= Time.zone.now
+  end
+
+  def display_name(english = false)
+    localize(name, english)
   end
 
 
