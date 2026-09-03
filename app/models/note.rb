@@ -1,4 +1,7 @@
 class Note < ApplicationRecord
+  DOKAA_POINTS = -30
+  SYSTEM_POINTS = [-3, DOKAA_POINTS].freeze
+
   belongs_to :from, :class_name => 'User', required: false
   belongs_to :to, :class_name => 'User'
 
@@ -27,7 +30,7 @@ class Note < ApplicationRecord
         errors.add(:points_hidden, 'Freshmen cannot give hidden points')
       end
     elsif !from
-      unless points == -3
+      unless SYSTEM_POINTS.include?(points)
         errors.add(:points, 'Wrong amount of points')
       end
     end
