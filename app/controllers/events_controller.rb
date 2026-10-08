@@ -46,15 +46,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    tekis_events = fetch_tekis_events
-    if params[:tekisEventId]
-      event_id = params[:tekisEventId]
-      if event_id != ''
-        selected_events = tekis_events.select {|event| event['id'] == event_id.to_i}
-        @selected_event = selected_events[0]
-      end
-    end
-    @tekis_events = tekis_events
+    set_new_event_form_data
     @event = Event.new
     @participation = Participation.new
   end
@@ -76,10 +68,12 @@ class EventsController < ApplicationController
           format.json { render :show, status: :created, location: @event }
         else
           @event.destroy
+          set_new_event_form_data
           format.html { render :new }
           format.json { render json: participation.errors, status: :unprocessable_entity }
         end
       else
+        set_new_event_form_data
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -120,6 +114,17 @@ class EventsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_event
     @event = Event.find(params[:id])
+  end
+
+  def set_new_event_form_data
+    @tekis_events = fetch_tekis_events
+    if params[:tekisEventId]
+      event_id = params[:tekisEventId]
+      if event_id != ''
+        selected_events = @tekis_events.select {|event| event['id'] == event_id.to_i}
+        @selected_event = selected_events[0]
+      end
+    end
   end
 
   # dateless entries (tasks) go last
