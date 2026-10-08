@@ -1,16 +1,30 @@
-FROM ruby:2.6.10-slim
+FROM debian:12-slim
 
 RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
+    autoconf \
+    bash \
+    bison \
     build-essential \
+    ca-certificates \
+    curl \
     gnupg2 \
     less \
     git \
+    libdb-dev \
+    libffi-dev \
+    libgdbm-dev \
+    libgmp-dev \
+    libncurses5-dev \
     libpq-dev \
     postgresql-client \
-    libvips42 \
+    libreadline-dev \
+    libssl-dev \
     nodejs \
+    libvips42 \
     sqlite3 \
     libsqlite3-dev \
+    libyaml-dev \
+    uuid-dev \
     zlib1g-dev \
     liblzma-dev \
     patch \
@@ -19,6 +33,18 @@ RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
     libxslt-dev \
     imagemagick \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ENV RBENV_ROOT=/usr/local/rbenv \
+  RUBY_VERSION=2.6.10
+
+ENV PATH=$RBENV_ROOT/shims:$RBENV_ROOT/bin:$PATH
+
+RUN git clone --depth 1 https://github.com/rbenv/rbenv.git "$RBENV_ROOT" \
+  && git clone --depth 1 https://github.com/rbenv/ruby-build.git "$RBENV_ROOT/plugins/ruby-build" \
+  && rbenv install "$RUBY_VERSION" \
+  && rbenv global "$RUBY_VERSION" \
+  && ruby --version \
+  && gem --version
 
 ENV LANG=C.UTF-8 \
   BUNDLE_JOBS=4 \

@@ -1,5 +1,10 @@
 # Fresher pass
 
+> [!WARNING]
+> The project was built for Debian 11, which has been deprecated as of August 31 2026.
+> We have implemented a hacky fix to be able to build it. 
+> You should NOT use this project anymore before there is a modernized or rewritten version.
+
 Fresher pass for the new students to compete on collecting points from events and tasks.
 
 ## Initial setup
