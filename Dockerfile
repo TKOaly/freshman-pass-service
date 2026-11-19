@@ -39,9 +39,13 @@ ENV RBENV_ROOT=/usr/local/rbenv \
 
 ENV PATH=$RBENV_ROOT/shims:$RBENV_ROOT/bin:$PATH
 
+# Ruby 2.6 is EOL, so the GHSA-34m4-m9fh-gqp5 fix (ruby/ruby@d582f8f) is applied here until the Ruby upgrade.
+COPY patches/ruby-sharp-s-case-map-overflow.patch /tmp/ruby.patch
+
 RUN git clone --depth 1 https://github.com/rbenv/rbenv.git "$RBENV_ROOT" \
   && git clone --depth 1 https://github.com/rbenv/ruby-build.git "$RBENV_ROOT/plugins/ruby-build" \
-  && rbenv install "$RUBY_VERSION" \
+  && rbenv install --patch "$RUBY_VERSION" < /tmp/ruby.patch \
+  && rm /tmp/ruby.patch \
   && rbenv global "$RUBY_VERSION" \
   && ruby --version \
   && gem --version
